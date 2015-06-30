@@ -8,8 +8,9 @@ function initializeAutocomplete(id) {
 
 function onPlaceChanged() {
   var place = this.getPlace();
+  console.log('in da stuff')
 
-  // console.log(place);  // Uncomment this line to view the full object returned by Google API.
+  console.log(place);  // Uncomment this line to view the full object returned by Google API.
 
   var lat = place.geometry.location.lat();
   var lng = place.geometry.location.lng();
