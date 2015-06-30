@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ThomasSertorio/openloge.png?label=ready&title=Ready)](https://waffle.io/ThomasSertorio/openloge)
 # Openloge
 
 ## Configuration
