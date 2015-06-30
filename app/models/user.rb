@@ -15,6 +15,15 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  first_name             :string
+#  last_name              :string
+#  address                :string
+#  birthday               :date
+#  number_of_children     :integer
+#  occupation             :text
+#  personal_description   :text
+#  neighbour_since        :integer
+#  favorite_shop          :string
 #
 # Indexes
 #
@@ -23,6 +32,12 @@
 #
 
 class User < ActiveRecord::Base
+
+  has_many :memberships
+  has_many :bookings
+  has_many :services
+  has_many :messages
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
