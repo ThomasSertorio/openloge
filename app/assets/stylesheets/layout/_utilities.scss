@@ -31,3 +31,34 @@
   background: $purple;
   color: white;
 }
+
+.bg-color {
+  background: $bg-color;
+}
+.bg-color-transparent {
+  background: $bg-color-transparent;
+}
+.bg-major-action-color {
+  background: $major-action-color;
+  color: white;
+}
+.bg-minor-action-color {
+  background: $minor-action-color;
+  color: white;
+}
+.bg-detail-color {
+  background: $detail-color;
+}
+
+.card {
+  margin:1em;
+  padding:1em;
+}
+
+.btn-100 {
+  width:100%
+}
+
+.margined-navbar {
+  margin-top:3em;
+}
