@@ -5,4 +5,54 @@
  .search_button {
   background: $major-action-color;
   color: white;
+  &:hover {
+    background: $minor-action-color;
+    color: white;
+    cursor: pointer;
+  }
 }
+
+.buttonSignInUp {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  background: $major-action-color;
+  border-radius: 3px;
+  margin: 10px 0px;
+  width: 100%;
+  padding: 15px;
+  &:hover {
+    color: white;
+    background: $minor-action-color;
+    cursor: pointer;
+  }
+  & a {
+    color: white;
+  }
+  & i {
+    margin-right: 10px;
+  }
+}
+
+.buttonFacebook {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  background: $facebook;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 15px;
+  &:hover {
+    color: white;
+    background: $facebook-hover;
+    cursor: pointer;
+  }
+  & a {
+    color: white;
+  }
+  & i {
+    margin-right: 10px;
+  }
+}
+

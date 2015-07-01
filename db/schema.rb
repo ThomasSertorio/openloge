@@ -110,6 +110,12 @@ ActiveRecord::Schema.define(version: 20150701084028) do
     t.text     "personal_description"
     t.integer  "neighbour_since"
     t.string   "favorite_shop"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "picture"
+    t.string   "name"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.float    "latitude"
     t.float    "longitude"
   end
