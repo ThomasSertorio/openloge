@@ -11,4 +11,7 @@
 #
 
 class Contact < ActiveRecord::Base
+  validates :email, presence: true
+  validates :address, presence: true
+  validates :newsletter, presence: true
 end
