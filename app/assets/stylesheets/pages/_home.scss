@@ -2,11 +2,11 @@
   position: relative;
   background-image: url("Photo_home.jpg");
   background-size: cover;
+  padding-top: 50px;
   padding-bottom: 200px;
-  padding-top: 200px;
   text-align: center;
   color: white;
-  text-shadow: 1px 1px 2px darken($blue, 40%);
+  text-shadow: 1px 1px 2px darken($minor-action-color, 40%);
   margin-top: 0px;
   h3 {
     font-family: $header-font;
@@ -17,7 +17,6 @@
     font-family: $base-font;
     font-size: 20px;
     font-weight: 300;
-    margin-bottom: 40px;
   }
 }
 
@@ -28,6 +27,6 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: darken($blue, 30%);
-  opacity: 0.9;
+  background-color: darken($minor-action-color, 10%);
+  opacity: 0.6;
 }

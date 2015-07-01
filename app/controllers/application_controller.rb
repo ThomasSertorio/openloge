@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+  class ApplicationController < ActionController::Base
   # include Pundit
 
   protect_from_forgery with: :exception
@@ -16,8 +16,6 @@ class ApplicationController < ActionController::Base
     #def after_sign_in_path_for(resource)
     #loge = resource.memberships.first.loge
     #loge_path(loge)
-    p "==== debug ===="
-    p resource
     if resource.find_principal_loge.nil?
       home_path
     else

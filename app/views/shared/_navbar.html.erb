@@ -47,10 +47,12 @@
           </li>
         <% else %>
           <li>
-            <%= link_to t(".sign_up", default: "Créer un compte"), new_user_registration_path %>
+            <% if request.fullpath.include? "/loge/" %>
+              <%= link_to t(".sign_up", default: "Rejoindre la Loge"), new_user_registration_path %>
+            <% end %>
           </li>
           <li>
-            <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path %>
+            <%= link_to t(".sign_in", default: "Me connecter"), new_user_session_path %>
           </li>
         <% end %>
       </ul>
