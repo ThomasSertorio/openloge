@@ -1,0 +1,31 @@
+<%= content_for(:title) do %>
+  OpenLoge
+<% end %>
+
+<%= content_for(:description) do %>
+  Services locaux durables
+<% end %>
+
+<div id="no-result">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card bg-color bg-color-transparent text-justify">
+          <div>
+            <h1 class="text-center">Aie.<br> Aucune Loge n'est encore ouverte à proximité de chez vous.</h1>
+            <p>Laissez-nous votre adresse e-mail pour être informé(e) en avant-première de l’ouverture d’une Loge près de chez vous.<br>A bientôt!<p>
+          </div>
+          <div>
+            <%= simple_form_for(@contact, url: contact_path) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :email, label: false, placeholder: 'thomas@gmail.com' %>
+              <%= f.input :newsletter, input_html: { checked: true }, inline_label: "Je souhaite m'inscrire à la newsletter OpenLoge" %>
+              <%=f.hidden_field :address, value: @address %>
+              <%= f.button :submit, 'OK', class: "btn-100 bg-major-action-color" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
