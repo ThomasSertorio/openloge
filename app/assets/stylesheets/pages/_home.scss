@@ -2,25 +2,32 @@
   position: relative;
   background-image: url("Photo_home.jpg");
   background-size: cover;
-  padding-bottom: 150px;
-}
-
-#home_title {
-  padding-top: 20%;
+  padding-bottom: 200px;
+  padding-top: 200px;
   text-align: center;
   color: white;
+  text-shadow: 1px 1px 2px darken($blue, 40%);
+  margin-top: 0px;
+  h3 {
+    font-family: $header-font;
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-family: $base-font;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
 }
 
-.navbar {
-  margin-bottom: 0;
-}
 
-.padded_20 {
-  margin-top: 20px;
-}
-
-.text_justify {
-  text-align: justify;
-  margin-left: 15%;
-  margin-right: 15%;
+.filter-blue {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: darken($blue, 30%);
+  opacity: 0.9;
 }

@@ -52,6 +52,7 @@ $navbar-profile-border-width: 2px;
   border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
   min-height: 0;
   transition: background 0.4s ease;
+  margin-bottombottom: 0px;
 
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
@@ -133,11 +134,6 @@ $navbar-profile-border-width: 2px;
     border-left: 1px solid #e6e6e6;
     z-index: -1;
   }
-}
-
-.alert {
-  margin: 0%;
-  text-align: center;
 }
 
 /* -------------------------------------
