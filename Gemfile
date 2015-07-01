@@ -23,6 +23,8 @@ gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
 
+gem 'omniauth-facebook'
+
 gem "geocoder"
 
 group :development, :test do
