@@ -56,3 +56,24 @@
   }
 }
 
+.buttonReinitializePW {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  background: $major-action-color;
+  border-radius: 3px;
+  margin: 10px 0px;
+  width: 100%;
+  padding: 10px;
+  &:hover {
+    color: white;
+    background: $minor-action-color;
+    cursor: pointer;
+  }
+  & a {
+    color: white;
+  }
+  & i {
+    margin-right: 10px;
+  }
+}

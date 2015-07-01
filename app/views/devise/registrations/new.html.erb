@@ -1,16 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h2><%= t('.sign_up', default: "Sign up") %></h2>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+<div class='main'>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card-white-content">
 
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :password, required: true %>
-        <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
-      <% end %>
+        <div class="buttonFacebook">
+          <%= render "devise/shared/facebookConnect" %>
+        </div>
+        <div class="text-center">
+          <p>ou</p>
+        <h2><%= t('.sign_up', default: "Sign up") %></h2>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
 
-      <%= render "devise/shared/links" %>
+          <%= f.input :email, label: false, placeholder: 'Adresse email', required: true, autofocus: true %>
+          <%= f.input :password, label: false, placeholder: 'Mot de passe', required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length), input_html: {class: "form-control"} %>
+          <%= f.input :password_confirmation,label: false, placeholder: 'Confirmez votre mot de passe',  required: true, input_html: {class: "form-control"} %>
+          <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "buttonSignInUp" %>
+        <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
