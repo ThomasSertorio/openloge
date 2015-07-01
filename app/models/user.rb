@@ -69,5 +69,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def find_principal_loge
+    # e may have user with no memberships, but that's something to fix!
+    if self.memberships.first.nil?
+      return nil
+    else
+      return self.memberships.first.loge
+    end
+  end
+
 
 end

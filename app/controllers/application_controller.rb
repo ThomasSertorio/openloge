@@ -16,7 +16,13 @@ class ApplicationController < ActionController::Base
     #def after_sign_in_path_for(resource)
     #loge = resource.memberships.first.loge
     #loge_path(loge)
-    home_path
+    p "==== debug ===="
+    p resource
+    if resource.find_principal_loge.nil?
+      home_path
+    else
+      loge_path(resource.find_principal_loge)
+    end
   end
 
   def devise_or_pages_controller?
