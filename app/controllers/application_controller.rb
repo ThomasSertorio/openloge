@@ -12,6 +12,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def after_sign_in_path_for
+    #def after_sign_in_path_for(resource)
+    #loge = resource.memberships.first.loge
+    #loge_path(loge)
+    home_path
+  end
+
   def devise_or_pages_controller?
     devise_controller? || pages_controller?
   end

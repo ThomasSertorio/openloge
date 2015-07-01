@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+  # Geocoding
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -65,8 +69,5 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Geocoding
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
 
 end
