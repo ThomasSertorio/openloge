@@ -30,6 +30,8 @@
 #  name                   :string
 #  token                  :string
 #  token_expiry           :datetime
+#  latitude               :float
+#  longitude              :float
 #
 # Indexes
 #
@@ -62,4 +64,9 @@ class User < ActiveRecord::Base
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
   end
+
+  # Geocoding
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 end
