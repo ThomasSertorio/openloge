@@ -7,21 +7,27 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Purge the DB
+Membership.destroy_all
 Loge.destroy_all
 User.destroy_all
-Membership.destroy_all
 
 #Create Loge
 loge_10 = Loge.new
   loge_10.name = "Loge du 10ème"
   loge_10.description = "Première loge ouverte"
   loge_10.created_on = Date.new(2015,7,3)
+  # latitude and Longitude on 58 rue de l'Aqueduc, paris"
+  loge_10.latitude = 48.8828091
+  loge_10.longitude = 2.3653419
   loge_10.save
 
 loge_18 = Loge.new
   loge_18.name = "Loge du 18ème"
   loge_18.description = "Lorem ipsum"
   loge_18.created_on = Date.new(2015,9,1)
+  # latitude and Longitude on 4 villa belliard, paris"
+  loge_18.latitude = 48.8953582
+  loge_18.longitude = 2.3291595
   loge_18.save
 
 #Create Users
