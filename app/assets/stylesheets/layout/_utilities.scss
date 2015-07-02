@@ -55,6 +55,10 @@
   padding:1em;
 }
 
+.right-border {
+  border-right:1px solid white;
+}
+
 .btn-100 {
   width:100%
 }
@@ -64,5 +68,24 @@
 }
 
 .field-margined-bottom {
-  margin-bottom:1em
+  margin-bottom:1em;
+}
+
+.font-very-small {
+  font-size: 10px;
+}
+
+.img-profile {
+  height:90px;
+  border:1px solid $major-action-color;
+  border-radius:50%
+}
+
+.link-unstyled {
+  text-decoration:none;
+  color:black;
+}
+
+.text-major-action-color{
+  color: $major-action-color;
 }

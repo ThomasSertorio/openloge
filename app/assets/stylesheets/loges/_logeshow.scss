@@ -4,8 +4,11 @@
   padding-top: 0px;
   text-align: center;
   color: white;
-  text-shadow: 1px 1px 2px darken($minor-action-color, 40%);
   margin-top: 0px;
+}
+
+.text-shadowed{
+  text-shadow: 1px 1px 2px darken($minor-action-color, 40%);
 }
 
 #loge-show h1{
@@ -16,6 +19,38 @@
   height:80px;
 }
 
+<<<<<<< HEAD
+.loge-stat p{
+  margin-bottom:0px;
+}
+
+#livefeed{
+  margin-top:1em;
+  font-size:12px;
+  font-style:italic;
+}
+
+.font-picture{
+  font-size:20px;
+}
+
+
+#reco {
+  display: inline-block;
+  position: relative;
+  top: -90px;
+  right: -50px;
+  color: $major-action-color;
+  font-size:14px;
+}
+
+#services_done {
+  display: inline-block;
+  position: relative;
+  top: -90px;
+  right: 50px;
+  color: $major-action-color;
+  font-size:14px;
 
 html.loges-index {
   height: 100%;
