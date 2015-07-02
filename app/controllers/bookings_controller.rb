@@ -1,36 +1,36 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!
-  before_action :find_service, only: [:new, :create, :update]
-  before_action :find_loge, only: [:new, :create, :update]
+  before_action :find_service, only: [:new]
+  before_action :find_loge, only: [:create]
 
   def new
-    @booking = Booking.new
-    @booking.service = @service
+    p @expert = @service.user
+    p @booking = Booking.new
+    p @booking.service = @service
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @boooking.service = @service
     @booking.loge = @loge
+    @booking.status ="first contact made"
     if @booking.save
-      @booking.update(status: "validated")
-      redirect_to user_path
+      p "in the if"
+      redirect_to loge_path(@loge)
     else
+      p "in the else"
+      # Problem no more service id!
       render :new
     end
   end
 
   def update
-    @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to user_path
   end
+
 
   private
 
   def booking_params
-    params.require(:booking).permit(:starts_at, :description, :duration, :pricing_nature)
+    params.require(:booking).permit(:description, :service_id)
   end
 
   def find_service
@@ -41,7 +41,4 @@ class BookingsController < ApplicationController
     @loge = Loge.find(params[:loge_id])
   end
 
-  def find_booking
-    @booking = Booking.find(params[:id])
-  end
 end

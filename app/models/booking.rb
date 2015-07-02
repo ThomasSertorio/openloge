@@ -24,6 +24,7 @@
 class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :service
+  belongs_to :loge
   has_many   :reviews
   has_many   :messages
 

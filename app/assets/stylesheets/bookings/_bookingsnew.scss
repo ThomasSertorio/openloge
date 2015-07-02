@@ -1,23 +1,21 @@
-#loge-show{
+#booking-new {
   position: relative;
   background-size: cover;
   padding-top: 0px;
-  text-align: center;
+  // text-align: center;
   color: white;
   text-shadow: 1px 1px 2px darken($minor-action-color, 40%);
   margin-top: 0px;
 }
 
-#loge-show h1{
-  display:none;
+
+#txt-booking {
+  padding-bottom: 4em;
+  margin-top: 2em;
 }
 
-#logo-loge{
-  height:80px;
-}
 
-
-html.loges-index {
+html.booking-new {
   height: 100%;
   body {
     height: 100%;
