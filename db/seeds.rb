@@ -8,6 +8,7 @@
 
 #Purge the DB
 Membership.destroy_all
+Service.destroy_all
 Loge.destroy_all
 User.destroy_all
 
@@ -112,6 +113,53 @@ michele_member_10 = Membership.new
   michele_member_10.user = user_michele
   michele_member_10.member_since = Date.new(2015,7,3)
   michele_member_10.save
+
+michele_cuisine = Service.new
+  michele_cuisine.user = user_michele
+  michele_cuisine.category = "Cuisine"
+  michele_cuisine.title = "Cuisine à domicile"
+  michele_cuisine.description = "CIAO! Vous souhaitez avoir un chef italien à domicile pour un dîner un peu exceptionnel?
+Alors voilà je prépare pour vous des spécialités du Sud de l’Italie, ma contrée d’origine: Linguine alle vongole, Parmigiana di melanzane, Lasagne, Tiramisù… Vous faites les courses, ou je les fais pour vous. Je viens chez vous pour cuisiner, avec ou sans vous et je sers à table, comme au restaurant!"
+  michele_cuisine.pricing_nature = "Forfait"
+  michele_cuisine.save
+
+michele_cours = Service.new
+  michele_cours.user = user_michele
+  michele_cours.category = "Cours particuliers"
+  michele_cours.title = "Cours d'Italien"
+  michele_cours.description = "Je suis diplômé en Littérature italienne classique et je peux donc vous proposer des cours en italien, que ce soit des cours de grammaire ou de la conversation, et du soutien scolaire en italien pour vos enfants."
+  michele_cours.pricing_nature = "Horaire"
+  michele_cours.save
+
+bela_depannage = Service.new
+  bela_depannage.user = user_bela
+  bela_depannage.category = "Assistance Informatique"
+  bela_depannage.title = "Intervention/Dépannage « en urgence »"
+  bela_depannage.description = "Votre ordinateur ne démarre plus, est infecté ou fonctionne très lentement, votre box internet ne répond plus, vous voulez changer de système d’exploitation : j’interviens ponctuellement pour vous dépanner dans les meilleurs délais."
+  bela_depannage.pricing_nature = "Horaire"
+  bela_depannage.save
+
+bela_accompagnement = Service.new
+  bela_accompagnement.user = user_bela
+  bela_accompagnement.category = "Assistance Informatique"
+  bela_accompagnement.title = "Accompagnement vers l’autonomie"
+  bela_accompagnement.description = "Je vous aide à prendre en main votre ordinateur, à assurer vous-même sa maintenance régulière, à mettre en place un carnet d’entretien informatique.
+Je donne des conseils pratiques pour une informatique éco-responsable : choix du matériel durable, utilisation réfléchie et gestion de la fin de vie de vos appareils."
+  bela_accompagnement.pricing_nature = "Horaire"
+  bela_accompagnement.save
+
+bela_formation = Service.new
+  bela_formation.user = user_bela
+  bela_formation.category = "Assistance Informatique"
+  bela_formation.title = "Initiation et formation"
+  bela_formation.description = "Vous voulez progresser sur les logiciels bureautiques (traitement de texte, le tableur…)
+Vous voulez optimiser votre navigation internet et votre messagerie ?
+Vous voulez exercer votre créativité et vous initier aux outils multimédias (montage vidéo, édition audio) ?
+Je vous accompagne dans vos projets d’apprentissage."
+  bela_formation.pricing_nature = "Horaire"
+  bela_formation.save
+
+
 
 
 

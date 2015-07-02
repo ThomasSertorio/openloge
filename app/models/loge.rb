@@ -26,4 +26,13 @@ class Loge < ActiveRecord::Base
   has_many :bookings
 
   validates :name, presence: true
+
+  def experts
+    results = []
+    self.memberships.each do |member|
+      results << member.user if member.user.is_expert?
+    end
+    return results
+  end
+
 end
