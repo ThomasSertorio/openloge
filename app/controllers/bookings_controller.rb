@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :find_service, only: [:new, :create, :update]
   before_action :find_loge, only: [:new, :create, :update]
 
@@ -37,7 +38,7 @@ class BookingsController < ApplicationController
   end
 
   def find_loge
-    @loge = Loge.find(params[:id])
+    @loge = Loge.find(params[:loge_id])
   end
 
   def find_booking
