@@ -6,27 +6,52 @@
   Services locaux durables
 <% end %>
 
-<div id="loge-show">
+<div id="loge-show" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div>
+        <div class="card">
+          <%=  image_tag "Logo_Loge_10", id: "logo-loge" %>
           <h1><%= @loge.name %></h1>
-          <%=  image_tag "Logo_Loge_10" %>
         </div>
       </div>
     </div>
     <div class="row">
+      <div class="col-xs-3">
+        <p>stat 1</p>
+      </div>
+      <div class="col-xs-3">
+        <p>stat 2</p>
+      </div>
+      <div class="col-xs-3">
+        <p>stat 3</p>
+      </div>
+      <div class="col-xs-3">
+        <p>stat 4</p>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="card margined-navbar bg-color-transparent text-justify">
-          <div>
-            <ul>
-              <% @loge.memberships.each do |member| %>
-              <li><%= member.user.first_name %> <%= member.user.last_name %> <%= link_to "Edit profile", loge_user_path(@loge, member.user) %> </li>
-              <% end %>
-          </div>
+        <div class="card">
+          <p>Filtres</p>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <% @loge.experts.each do |expert| %>
+        <div class="col-xs-12 col-sm-3">
+          <div class="card bg-color-transparent">
+            <p><%= expert.first_name %> <%= expert.last_name %></p>
+            <p><%= link_to "Profile", loge_user_path(@loge, expert) %></p>
+            <ul class="text-left list-unstyled">
+              <% expert.services.each do |serv| %>
+                <li><%= serv.title %></li>
+              <% end %>
+                <li><%= link_to "Profile", loge_user_path(@loge, expert) %></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

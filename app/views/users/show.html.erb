@@ -1,2 +1,59 @@
 <h1>Users#show</h1>
 <p>This is <%= @user.first_name %> for <%= @loge.name %></p>
+<%= content_for(:title) do %>
+  <%= "OpenLoge | " + @loge.name + @user.first_name || "OpenLoge"%>
+<% end %>
+
+<%= content_for(:description) do %>
+  Services locaux durables
+<% end %>
+
+<div id="loge-show" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card">
+          <%=  image_tag "Logo_Loge_10", id: "logo-loge" %>
+          <h1><%= @loge.name %></h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <p>stat 1</p>
+      </div>
+      <div class="col-xs-3">
+        <p>stat 2</p>
+      </div>
+      <div class="col-xs-3">
+        <p>stat 3</p>
+      </div>
+      <div class="col-xs-3">
+        <p>stat 4</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card">
+          <p>Filtres</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        <div class="card bg-color-transparent">
+          <p><%= @user.first_name %> <%= @user.last_name %></p>
+          <ul class="text-left list-unstyled">
+            <% @user.services.each do |serv| %>
+              <li><%= serv.title %></li>
+              <form action="/" method="get" class="form-inline">
+                <input type="hidden" name="service_id" value="<%= serv.id %>">
+                <button type="submit" class="btn btn-default">Book</button>
+              </form>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

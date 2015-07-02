@@ -78,5 +78,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_expert?
+    !self.services.blank?
+  end
+
 
 end
