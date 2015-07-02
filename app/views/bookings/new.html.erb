@@ -1,0 +1,29 @@
+<div id="booking-new" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <p>profile picture</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <h1><%= @expert.first_name.capitalize %> <%= @expert.last_name.split("").first.upcase %>.</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h4>Proposez une mission à <%= @expert.first_name.capitalize %></h4>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h5>Service choisi: <%= @service.title %></h5>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for(@booking, url: loge_bookings_path) do |f| %>
+        <%= f.input :description, label: false, input_html: {id: "txt-booking"}, placeholder: 'Ecrivez votre demande' %>
+        <%= f.hidden_field :service_id, value: @service.id %>
+        <%= f.button :submit, "Envoyer", class: "buttonSignInUp" %>
+      <% end %>
+    </div>
+  </div>
+</div>
