@@ -118,14 +118,14 @@ ActiveRecord::Schema.define(version: 20150701125853) do
     t.text     "personal_description"
     t.integer  "neighbour_since"
     t.string   "favorite_shop"
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
     t.string   "name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :loges, only: [:index, :show] do
+    resources :bookings
     resources :users, only: [:show]
   end
 
