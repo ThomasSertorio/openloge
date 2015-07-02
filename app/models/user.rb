@@ -99,7 +99,9 @@ class User < ActiveRecord::Base
     if self.is_expert?
       self.services.each do |service|
         service.bookings.each do |booking|
-          reco += 1 if booking.review.recommendation
+          if !booking.review.nil?
+            reco += 1 if booking.review.recommendation
+          end
         end
       end
       return reco
