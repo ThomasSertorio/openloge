@@ -35,4 +35,26 @@ class Loge < ActiveRecord::Base
     return results
   end
 
+  def members
+    results = []
+    self.memberships.each do |member|
+      results << member.user
+    end
+    return results
+  end
+
+  def services_done
+    return self.bookings
+  end
+
+  def service_categories
+    results = []
+    self.experts.each do |expert|
+      expert.services.each do |serv|
+        results << serv.category
+      end
+    end
+    return results.uniq
+  end
+
 end

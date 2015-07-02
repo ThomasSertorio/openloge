@@ -71,7 +71,7 @@ user_bela = User.new
   user_bela.neighbour_since = 4
   user_bela.occupation = "Consultante"
   user_bela.favorite_shop = "Café A"
-  user_bela.personal_description = "Bio"
+  user_bela.personal_description = "Formatrice professionnelle, Bela met toute sa pédagogie au service du quartier et propose …"
   user_bela.save
 
 user_michele = User.new
@@ -85,7 +85,7 @@ user_michele = User.new
   user_michele.neighbour_since = 4
   user_michele.occupation = "Cuisinier"
   user_michele.favorite_shop = "Café A"
-  user_michele.personal_description = "Bio"
+  user_michele.personal_description = "CIAO! Vous souhaitez avoir un chef italien à domicile pour un dîner un peu exceptionnel ? Alors voilà …"
   user_michele.save
 
 #Create Memberships

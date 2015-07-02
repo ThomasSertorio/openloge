@@ -82,5 +82,45 @@ class User < ActiveRecord::Base
     !self.services.blank?
   end
 
+  def categories
+    results = []
+    if self.is_expert?
+      self.services.each do |service|
+        results << service.category
+      end
+      return results.uniq
+    else
+      return []
+    end
+  end
+
+  def reco
+    reco = 0
+    if self.is_expert?
+      self.services.each do |service|
+        service.bookings.each do |booking|
+          reco += 1 if booking.review.recommendation
+        end
+      end
+      return reco
+    else
+      return 0
+    end
+  end
+
+  def services_done
+    results = []
+    if self.is_expert?
+      self.services.each do |service|
+        service.bookings.each do |booking|
+          results << booking
+        end
+      end
+      return results
+    else
+      return []
+    end
+  end
+
 
 end
