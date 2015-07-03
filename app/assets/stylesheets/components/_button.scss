@@ -1,7 +1,7 @@
 /* -------------------------------------
  * You killer button SASS module
  * ------------------------------------- */
-  .search_button {
+.search_button {
   background: $major-action-color;
   color: white;
   &:hover {
@@ -104,6 +104,7 @@
   background: $major-action-color;
   border-radius: 3px;
   padding: 5px;
+  margin-top: 1em;
   &:hover {
     color: white;
     background: $detail-color;
