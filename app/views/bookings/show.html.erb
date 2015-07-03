@@ -15,7 +15,14 @@
           <p><%= image_tag current_user.picture, class: "img-profile" %> -----
           <%= image_tag image_path(@expert.first_name.downcase + ".jpg"), class: "img-profile" %>
           </p>
-          <h1>Mes échanges avec <%= @expert.first_name.capitalize %></h1>
+          <h1>
+            Mes échanges avec
+            <% if current_user == @expert %>
+              <%= @booking.user.name.capitalize %>
+            <% else %>
+              <%= @expert.first_name.capitalize %>
+            <% end %>
+          </h1>
         </div>
       </div>
     </div>
@@ -50,7 +57,7 @@
                 <div class="row">
                   <div class="user-message">
                     <p class="text-left">
-                    <%= message.user.first_name || "Moi" + ":" %><br><%= message.content %>
+                      <%= message.content %>
                     </p>
                     <p class="posted-at">
                     <%= message.posted_at.strftime("%A %d at %kh%M" ) %>
@@ -61,10 +68,10 @@
                 <div class="row">
                   <div  class="expert-message">
                     <p class="text-right">
-                      <%= message.user.first_name %><br><%= message.content %>
+                      <%= message.content %>
                     </p>
                     <p class="posted-at">
-                      <%= message.posted_at.strftime("%A %d" ) %>
+                      <%= message.posted_at.strftime("%A %d at %kh%M" ) %>
                     </p>
                   </div>
                 </div>
@@ -74,8 +81,29 @@
             </div>
           </div>
 
-          <!-- Chat -->
-          <div role="tabpanel" class="tab-pane" id="mission">Precision sur la mission
+          <!-- Mission -->
+          <div role="tabpanel" class="tab-pane" id="mission">
+            <div id="mission-description">
+              <h1 class="text-center"><%= @booking.service.title %></h1>
+              <ul class="text-center list-inline">
+                <li><i class="fa fa-calendar"></i> <%= @booking.starts_at || "A fixer" %> | </li>
+                <li><i class="fa fa-clock-o"></i> <%= @booking.duration || "A fixer" %> | </li>
+                <li><i class="fa fa-money"></i> "A fixer"</li>
+              </ul>
+              <p>Description: <%= @booking.service.description %></p>
+            </div>
+            <div id="mission-update">
+              <% if current_user == @expert %>
+                <%= current_user %>
+                <%= @expert %>
+                <%= simple_form_for([@loge, @new_booking]) do |f| %>
+                  <%= f.input :starts_at, label: false %>
+                  <%= f.input :duration, label: false, placeholder: "Durée prévue" %>
+                  <%= "Price" %>
+                  <%= f.button :submit, "Proposer", class: "buttonChat" %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

@@ -7,13 +7,13 @@ class MessagesController < ApplicationController
       @message.posted_at = Time.now
       @message.user = current_user
       @message.booking  =  @booking
-      p @message
     if  @message.save
-      p "=====in the if====="
+      @booking.messages.each do |message|
+        message.new_message = false if message != @message
+      end
       redirect_to loge_booking_path(@loge, @booking)
-     else
-      p "=====in the else====="
-      render 'restaurants/show'
+    else
+      redirect_to loge_booking_path(@loge, @booking)
      end
    end
    private

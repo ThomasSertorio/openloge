@@ -11,6 +11,7 @@
   padding:1em;
   color:#555555;
   font-size:12px;
+  margin-bottom:50px;
 }
 
 .user-message{
@@ -21,16 +22,19 @@
   p {
     margin-bottom:0px;
   }
+  margin-bottom:1em;
 }
 
 .expert-message{
   float:right;
   background-color: $minor-action-color;
+  color:white;
   padding:1em;
   border-radius:5px;
   p {
     margin-bottom:0px;
   }
+  margin-bottom:1em;
 }
 
 .posted-at{
@@ -46,4 +50,26 @@
 #new-message{
   padding:1em;
   border-bottom:1px solid $detail-color;
+}
+
+
+#mission-description{
+  text-align:left;
+  padding:1em;
+  color:#555555;
+  font-size:12px;
+  h1{
+    font-size:20px;
+  }
+  ul{
+    font-szie:16px;
+    font-weight:bold;
+  }
+}
+
+#mission-update{
+  text-align:left;
+  padding:1em;
+  color:#555555;
+  font-size:12px;
 }
