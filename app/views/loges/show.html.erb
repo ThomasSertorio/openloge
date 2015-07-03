@@ -74,7 +74,7 @@
                   <a class="btn buttonCategory" href="#" role="button"><%= category %></a>
                 <% end %>
               </p>
-              <p class="text-left" id="expert-description"><%= expert.personal_description[0..100] + "..." %></p>
+              <p class="text-left" id="expert-description"><%= expert.personal_description[0..90] + "..." %></p>
               <%= link_to "Me Contacter", loge_user_path(@loge, expert), class:"btn buttonContactExpert" %></a>
             </div>
           </div>

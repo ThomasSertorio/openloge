@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Purge the DB
+Message.destroy_all
+Booking.destroy_all
 Membership.destroy_all
 Service.destroy_all
 Loge.destroy_all
@@ -88,6 +90,76 @@ user_michele = User.new
   user_michele.personal_description = "CIAO! Vous souhaitez avoir un chef italien à domicile pour un dîner un peu exceptionnel ? Alors voilà …"
   user_michele.save
 
+user_alexandra = User.new
+  user_alexandra.email = "alexandra@openloge.fr"
+  user_alexandra.password = "00000000"
+  user_alexandra.first_name = "alexandra"
+  user_alexandra.last_name = "White"
+  user_alexandra.address = "56 rue Eugene Varlin"
+  user_alexandra.birthday = Date.new(1988,10,5)
+  user_alexandra.number_of_children = 0
+  user_alexandra.neighbour_since = 21
+  user_alexandra.occupation = "Etudiante en droit"
+  user_alexandra.favorite_shop = "Café A"
+  user_alexandra.personal_description = "De l’énergie et de la pédagogie pour apprendre et progresser ! Alexandra aide vos enfants à…"
+  user_alexandra.save
+
+user_isa = User.new
+  user_isa.email = "isa@openloge.fr"
+  user_isa.password = "00000000"
+  user_isa.first_name = "isa"
+  user_isa.last_name = "Pink"
+  user_isa.address = "12 rue Louis Blanc"
+  user_isa.birthday = Date.new(1978,10,5)
+  user_isa.number_of_children = 1
+  user_isa.neighbour_since = 25
+  user_isa.occupation = "Professeur de Yoga"
+  user_isa.favorite_shop = "Café A"
+  user_isa.personal_description = "Diplomée de la fédération française de yoga / Yoga Alliance USA au Studio Gérard Arnaud, après plus de vingt …"
+  user_isa.save
+
+user_emile = User.new
+  user_emile.email = "emile@openloge.fr"
+  user_emile.password = "00000000"
+  user_emile.first_name = "emile"
+  user_emile.last_name = "Red"
+  user_emile.address = "45 rue Louis Blanc"
+  user_emile.birthday = Date.new(1984,10,5)
+  user_emile.number_of_children = 0
+  user_emile.neighbour_since = 17
+  user_emile.occupation = "Plombier à Velo"
+  user_emile.favorite_shop = "Franprix Louix Blanc"
+  user_emile.personal_description = "Emile prend du plaisir à bricoler, réflechir à votre problème et trouver la meilleure solution…"
+  user_emile.save
+
+user_samara = User.new
+  user_samara.email = "samara@openloge.fr"
+  user_samara.password = "00000000"
+  user_samara.first_name = "samara"
+  user_samara.last_name = "Purple"
+  user_samara.address = "45 rue Cail"
+  user_samara.birthday = Date.new(1984,10,5)
+  user_samara.number_of_children = 0
+  user_samara.neighbour_since = 17
+  user_samara.occupation = "Consultante RH"
+  user_samara.favorite_shop = "Fromagerie Bellevaire"
+  user_samara.personal_description = "Envie d’un colombo maison ? Samara vous propose ses talents de cuisinière et son expérience …"
+  user_samara.save
+
+user_thibaut = User.new
+  user_thibaut.email = "thibaut@openloge.fr"
+  user_thibaut.password = "00000000"
+  user_thibaut.first_name = "thibaut"
+  user_thibaut.last_name = "Purple"
+  user_thibaut.address = "45 rue Cail"
+  user_thibaut.birthday = Date.new(1984,10,5)
+  user_thibaut.number_of_children = 0
+  user_thibaut.neighbour_since = 17
+  user_thibaut.occupation = "Bricoleur - Vélo"
+  user_thibaut.favorite_shop = "Fromagerie Bellevaire"
+  user_thibaut.personal_description = "Dans le quartier depuis plus de 5 ans et Papa de 2 enfants, Thibaut est à votre disposition …"
+  user_thibaut.save
+
 #Create Memberships
 alban_member_10 = Membership.new
   alban_member_10.loge = loge_10
@@ -114,6 +186,37 @@ michele_member_10 = Membership.new
   michele_member_10.member_since = Date.new(2015,7,3)
   michele_member_10.save
 
+alexandra_member_10 = Membership.new
+  alexandra_member_10.loge = loge_10
+  alexandra_member_10.user = user_alexandra
+  alexandra_member_10.member_since = Date.new(2015,7,3)
+  alexandra_member_10.save
+
+isa_member_10 = Membership.new
+  isa_member_10.loge = loge_10
+  isa_member_10.user = user_isa
+  isa_member_10.member_since = Date.new(2015,7,3)
+  isa_member_10.save
+
+emile_member_10 = Membership.new
+  emile_member_10.loge = loge_10
+  emile_member_10.user = user_emile
+  emile_member_10.member_since = Date.new(2015,7,3)
+  emile_member_10.save
+
+samara_member_10 = Membership.new
+  samara_member_10.loge = loge_10
+  samara_member_10.user = user_samara
+  samara_member_10.member_since = Date.new(2015,7,3)
+  samara_member_10.save
+
+thibaut_member_10 = Membership.new
+  thibaut_member_10.loge = loge_10
+  thibaut_member_10.user = user_thibaut
+  thibaut_member_10.member_since = Date.new(2015,7,3)
+  thibaut_member_10.save
+
+# Create service
 michele_cuisine = Service.new
   michele_cuisine.user = user_michele
   michele_cuisine.category = "Cuisine"
@@ -159,7 +262,62 @@ Je vous accompagne dans vos projets d’apprentissage."
   bela_formation.pricing_nature = "Horaire"
   bela_formation.save
 
+alexandra_formation = Service.new
+  alexandra_formation.user = user_alexandra
+  alexandra_formation.category = "Baby-sitting"
+  alexandra_formation.title = "Baby-sitting"
+  alexandra_formation.description = "Je m'occupe de vos bambins!"
+  alexandra_formation.pricing_nature = "Horaire"
+  alexandra_formation.save
 
+alexandra_formation = Service.new
+  alexandra_formation.user = user_alexandra
+  alexandra_formation.category = "Cours Particuliers"
+  alexandra_formation.title = "Soutien scolaire"
+  alexandra_formation.description = "Cours Primaire / Collège / Lycée"
+  alexandra_formation.pricing_nature = "Horaire"
+  alexandra_formation.save
+
+isa_formation = Service.new
+  isa_formation.user = user_isa
+  isa_formation.category = "Cours Particuliers"
+  isa_formation.title = "Cours de Yoga"
+  isa_formation.description = "Si vous souhaitez mettre en place à votre domicile, un véritable rendez-vous avec vous-même, je me tiens à votre disposition pour vous proposer un cours de yoga adapté à votre niveau et personnalisé.
+Si vous souhaitez mettre en place un cours à l’heure du déjeuner dans votre entreprise via votre CE, je suis disposé à répondre à votre demande et à vos besoins."
+  isa_formation.pricing_nature = "Horaire"
+  isa_formation.save
+
+emile_formation = Service.new
+  emile_formation.user = user_emile
+  emile_formation.category = "Bricolage"
+  emile_formation.title = "Bricolage à domicile"
+  emile_formation.description = "Besoin d'installer votre étagère? De refaire la peinture, j'aime le travail bien fait"
+  emile_formation.pricing_nature = "Horaire"
+  emile_formation.save
+
+emile_formation = Service.new
+  emile_formation.user = user_emile
+  emile_formation.category = "Réparation Vélo"
+  emile_formation.title = "Réparation/Révison de vélo"
+  emile_formation.description = "Je m'occupe de vos vieux vélo!"
+  emile_formation.pricing_nature = "Horaire"
+  emile_formation.save
+
+samara_formation = Service.new
+  samara_formation.user = user_samara
+  samara_formation.category = "Cuisine"
+  samara_formation.title = "Plats exotiques"
+  samara_formation.description = "Spécialiste du colombo, j'aime cuisiner en grande quantité ;) n'hésitez pas à me commander quelques plats."
+  samara_formation.pricing_nature = "Horaire"
+  samara_formation.save
+
+thibaut_formation = Service.new
+  thibaut_formation.user = user_thibaut
+  thibaut_formation.category = "Cours particuliers"
+  thibaut_formation.title = "Cours de Roller"
+  thibaut_formation.description = "Inline/Quad/Agressi j'apprends à vos enfants ou vous meme les bases de la glisse"
+  thibaut_formation.pricing_nature = "Horaire"
+  thibaut_formation.save
 
 
 
