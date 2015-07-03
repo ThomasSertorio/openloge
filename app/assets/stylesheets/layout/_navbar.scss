@@ -4,7 +4,7 @@
 $navbar-color: $gray-light;
 $navbar-hover-color: $major-action-color;
 $navbar-font-family: $navbar-font;
-$navbar-font-size: 14px;
+$navbar-font-size: 16px;
 $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
@@ -40,26 +40,31 @@ $navbar-profile-border-width: 2px;
  * SCSS code
  * ------------------------------------- */
 .navbar-wagon {
-  background: $navbar-bg;
   font-family: $navbar-font-family;
   border: none;
+  position: absolute;
+  z-index: 1;
+  background: none;
+  left: 0;
+  right: 0;
   font-size: $navbar-font-size;
   text-transform: $navbar-text-transform;
   font-weight: $navbar-font-weight;
   letter-spacing: $navbar-letter-spacing;
   padding-left: $navbar-horizontal-padding;
   padding-right: $navbar-horizontal-padding;
-  border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
   min-height: 0;
   transition: background 0.4s ease;
   margin-bottom: 0px;
+
+
 
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
   .navbar-nav > li > a:focus,
   .navbar-nav > .open > a:focus {
     outline: none;
-    color: $navbar-color;
+    color: white;
     line-height: $navbar-height;
     padding-top: $navbar-vertical-padding;
     padding-bottom: $navbar-vertical-padding;
@@ -142,6 +147,7 @@ $navbar-profile-border-width: 2px;
 
 @media screen and (max-width: 768px) {
   .navbar-wagon {
+    background-color: rgba(200, 200, 200, 0.8);
     .navbar-brand img, .navbar-brand svg {
       height: 50px;
     }

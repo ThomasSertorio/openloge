@@ -2,10 +2,11 @@
   position: relative;
   background-image: image_url("Photo_home.jpg");
   background-size: cover;
-  padding-top: 50px;
-  padding-bottom: 200px;
   text-align: center;
   color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
   text-shadow: 1px 1px 2px darken($minor-action-color, 40%);
   margin-top: 0px;
   h3 {
@@ -21,3 +22,24 @@
 }
 
 
+.high_voltage-pages-show {
+  height: 100%;
+
+  body {
+    height: 100%;
+  }
+
+}
+
+#user_input_autocomplete_address {
+  border-radius: 5px 0px 0px 5px;
+  padding-top: 1.3em;
+  padding-bottom: 1.3em;
+}
+
+@media screen and (max-width: 768px)
+{
+  #user_input_autocomplete_address {
+    border-radius: 3px 3px 3px 3px;
+  }
+}
