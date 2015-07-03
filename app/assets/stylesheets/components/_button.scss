@@ -96,3 +96,23 @@
     margin-right: 10px;
   }
 }
+
+.buttonContactExpert {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  background: $major-action-color;
+  border-radius: 3px;
+  padding: 5px;
+  &:hover {
+    color: white;
+    background: $detail-color;
+    cursor: pointer;
+  }
+  & a {
+    color: white;
+  }
+  & i {
+    margin-right: 10px;
+  }
+}

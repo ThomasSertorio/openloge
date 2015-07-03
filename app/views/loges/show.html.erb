@@ -7,6 +7,7 @@
 <% end %>
 
 <div id="loge-show" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
+  <div class="filter-blue"></div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -44,7 +45,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <div id="livefeed" class="text-left bg-detail-color">
+        <div id="livefeed" class="text-left bg-major-action-color">
           <p>--- Live Feed ---</p>
         </div>
       </div>
@@ -52,7 +53,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2>L'équipe de la <%= @loge.name %> </h2>
-        <p class="text-major-action-color">J'ai besoin d'un expert de la Loge pour:</p>
+        <p class="text-major-action-color"><strong>J'ai besoin d'un expert de la Loge pour:<strong></p>
         <% @loge.service_categories.each do |category| %>
           <a class="btn buttonCategory" href="#" role="button"><%= category %></a>
         <% end %>
@@ -68,12 +69,13 @@
                 <div id="reco"><i class="fa fa-star"></i> <%= expert.reco %></div>
                 <div id="services_done"><i class="fa fa-book"></i> <%= expert.services_done.size %></div>
               </div>
-              <h3><%= expert.first_name.capitalize %></h3>
+              <h3 id="expert-name"><%= expert.first_name.capitalize %></h3>
               <p class="text-left"><% expert.categories.each do |category| %>
                   <a class="btn buttonCategory" href="#" role="button"><%= category %></a>
                 <% end %>
               </p>
-              <p class="text-left"><%= expert.personal_description[0..100] + "..." %></p>
+              <p class="text-left" id="expert-description"><%= expert.personal_description[0..100] + "..." %></p>
+              <%= link_to "Me Contacter", loge_user_path(@loge, expert), class:"btn buttonContactExpert" %></a>
             </div>
           </div>
         <% end %>
