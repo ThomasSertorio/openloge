@@ -6,7 +6,11 @@ class BookingsController < ApplicationController
   def show
     @expert = @booking.service.user
     @messages = @booking.messages
+    @messages.each do |message|
+      message.new_message = false
+    end
     @new_message = Message.new
+    @new_booking = Booking.new
   end
 
   def new
@@ -21,16 +25,15 @@ class BookingsController < ApplicationController
       @booking.loge = @loge
       @booking.status ="first contact made"
     if @booking.save
-      p "in the if"
       message = Message.new
         message.booking = @booking
         message.user = current_user
         message.posted_at = Time.now
         message.content = @booking.description
+        message.new_message = true
         message.save
       redirect_to loge_booking_path(@loge, @booking)
     else
-      p "in the else"
       # Problem no more service id!
       render :new
     end

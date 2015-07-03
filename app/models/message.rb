@@ -2,13 +2,14 @@
 #
 # Table name: messages
 #
-#  id         :integer          not null, primary key
-#  booking_id :integer
-#  user_id    :integer
-#  posted_at  :datetime
-#  content    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  booking_id  :integer
+#  user_id     :integer
+#  posted_at   :datetime
+#  content     :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  new_message :boolean
 #
 # Indexes
 #

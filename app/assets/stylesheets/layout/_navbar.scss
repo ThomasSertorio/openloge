@@ -135,7 +135,6 @@ $navbar-profile-border-width: 2px;
     z-index: -1;
   }
 }
-
 /* -------------------------------------
  * Navbar profile picture
  * ------------------------------------- */
@@ -153,4 +152,11 @@ $navbar-profile-border-width: 2px;
       padding-bottom: 0;
     }
   }
+}
+
+#new-message-notif {
+  background-color: $major-action-color;
+}
+#new-message-notif a{
+  color:white;
 }

@@ -124,5 +124,25 @@ class User < ActiveRecord::Base
     end
   end
 
+  def new_message?
+    # Only return bokking of "first" new_message
+    if self.is_expert?
+      self.services.each do |service|
+        service.bookings.each do |booking|
+          booking.messages.each do |message|
+            return booking if message.new_message
+          end
+        end
+      end
+    else
+      self.bookings.each do |booking|
+        booking.messages.each do |message|
+          return booking if message.new_message
+        end
+      end
+    end
+    return false
+  end
+
 
 end

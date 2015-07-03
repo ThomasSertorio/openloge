@@ -17,11 +17,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
-            <% end %>
-          </li>
+          <% if current_user.new_message? %>
+            <li id="new-message-notif">
+              <%= link_to loge_booking_path(current_user.new_message?.loge, current_user.new_message?) do %>
+                <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
+              <% end %>
+            </li>
+          <% end %>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
               <%= image_tag current_user.picture, class: "img-avatar" %>
