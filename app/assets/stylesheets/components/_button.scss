@@ -4,10 +4,20 @@
 .search_button {
   background: $major-action-color;
   color: white;
+  border-radius: 0px 5px 5px 0px;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
   &:hover {
     background: $minor-action-color;
     color: white;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .search_button {
+    border-radius: 3px 3px 3px 3px;
   }
 }
 
