@@ -33,6 +33,28 @@
   }
 }
 
+.buttonChat {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  background: $major-action-color;
+  border-radius: 3px;
+  margin: 5px 0px;
+  width: 100%;
+  padding: 1em;
+  &:hover {
+    color: white;
+    background: $minor-action-color;
+    cursor: pointer;
+  }
+  & a {
+    color: white;
+  }
+  & i {
+    margin-right: 10px;
+  }
+}
+
 .buttonFacebook {
   color: white;
   font-size: 20px;

@@ -1,0 +1,49 @@
+#booking-show{
+  position: relative;
+  background-size: cover;
+  padding-top: 0px;
+  text-align: center;
+  color: white;
+  margin-top: 0px;
+}
+
+#chat-room{
+  padding:1em;
+  color:#555555;
+  font-size:12px;
+}
+
+.user-message{
+  float:left;
+  background-color: rgb(250,250,250);
+  padding:1em;
+  border-radius:5px;
+  p {
+    margin-bottom:0px;
+  }
+}
+
+.expert-message{
+  float:right;
+  background-color: $minor-action-color;
+  padding:1em;
+  border-radius:5px;
+  p {
+    margin-bottom:0px;
+  }
+}
+
+.posted-at{
+  text-align:right;
+  font-size:8px;
+  font-style:italic;
+}
+
+#escape{
+  clear:both;
+}
+
+#new-message{
+  padding:1em;
+  border-bottom:1px solid $detail-color;
+}
