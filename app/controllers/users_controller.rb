@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :find_loge, only:  [:show]
 
   def show
+    @expert = @user
   end
 
   private
