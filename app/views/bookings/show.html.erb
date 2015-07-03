@@ -1,0 +1,83 @@
+<%= content_for(:title) do %>
+  <%= "OpenLoge | Mes échanges avec " + @expert.first_name || "OpenLoge"%>
+<% end %>
+
+<%= content_for(:description) do %>
+  Services locaux durables
+<% end %>
+
+<div id="booking-show" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
+  <div class="filter-blue"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card">
+          <p><%= image_tag current_user.picture, class: "img-profile" %> -----
+          <%= image_tag image_path(@expert.first_name.downcase + ".jpg"), class: "img-profile" %>
+          </p>
+          <h1>Mes échanges avec <%= @expert.first_name.capitalize %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a class="text-major-action-color" href="#chat" aria-controls="chat" role="tab" data-toggle="tab">Mes échanges</a>
+          </li>
+          <li role="presentation"><a class="text-major-action-color" href="#mission" aria-controls="mission" role="tab" data-toggle="tab">Mission</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <!-- Tab panes -->
+        <div class="tab-content bg-color">
+          <!-- Chat -->
+          <div role="tabpanel" class="tab-pane active" id="chat">
+            <div id="new-message">
+              <%= simple_form_for([@loge, @booking, @new_message]) do |f| %>
+                <%= f.input :content, label: false,placeholder: 'Précisez votre demande' %>
+                <%= f.button :submit, "Envoyer", class: "buttonChat" %>
+              <% end %>
+            </div>
+            <div id="chat-room">
+              <% @messages.each do |message| %>
+                <% if message.user == @booking.user %>
+                <div class="row">
+                  <div class="user-message">
+                    <p class="text-left">
+                    <%= message.user.first_name || "Moi" + ":" %><br><%= message.content %>
+                    </p>
+                    <p class="posted-at">
+                    <%= message.posted_at.strftime("%A %d at %kh%M" ) %>
+                    </p>
+                  </div>
+                </div>
+                <% else %>
+                <div class="row">
+                  <div  class="expert-message">
+                    <p class="text-right">
+                      <%= message.user.first_name %><br><%= message.content %>
+                    </p>
+                    <p class="posted-at">
+                      <%= message.posted_at.strftime("%A %d" ) %>
+                    </p>
+                  </div>
+                </div>
+                <% end %>
+              <% end %>
+              <div id="escape"></div>
+            </div>
+          </div>
+
+          <!-- Chat -->
+          <div role="tabpanel" class="tab-pane" id="mission">Precision sur la mission
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
