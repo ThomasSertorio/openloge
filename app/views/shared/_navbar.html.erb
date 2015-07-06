@@ -49,7 +49,7 @@
           </li>
         <% else %>
           <li>
-            <% if request.fullpath.include? "/loge/" %>
+            <% if request.fullpath.include? "/loges/" %>
               <%= link_to t(".sign_up", default: "Rejoindre la Loge"), new_user_registration_path %>
             <% end %>
           </li>
