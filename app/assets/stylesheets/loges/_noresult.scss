@@ -2,9 +2,18 @@
   position: relative;
   background-image: image_url("Photo_home.jpg");
   background-size: cover;
-}
-
-#no-result h1 {
+  height: 100%;
+  h1 {
   font-size: 1.6em;
+  }
 }
 
+.loges-height100 {
+  height: 100%;
+  body {
+    height: 100%;
+    .main {
+      height: 100%;
+    }
+  }
+}
