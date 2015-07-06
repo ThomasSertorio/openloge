@@ -24,14 +24,18 @@
 #  personal_description   :text
 #  neighbour_since        :integer
 #  favorite_shop          :string
+#  latitude               :float
+#  longitude              :float
 #  provider               :string
 #  uid                    :string
 #  picture                :string
 #  name                   :string
 #  token                  :string
 #  token_expiry           :datetime
-#  latitude               :float
-#  longitude              :float
+#  picture_file_name      :string
+#  picture_content_type   :string
+#  picture_file_size      :integer
+#  picture_updated_at     :datetime
 #
 # Indexes
 #
