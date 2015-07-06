@@ -1,14 +1,15 @@
   class ApplicationController < ActionController::Base
-  # include Pundit
+
+  include Pundit
 
   protect_from_forgery with: :exception
   before_action :authenticate_user!, unless: :pages_controller?
 
   helper_method :current_loge
-  # after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
-  # after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
+  after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
+  after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
 
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def current_loge
     return unless current_user

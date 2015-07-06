@@ -1,0 +1,27 @@
+<%= content_for(:title) do %>
+  OpenLoge | Mettre à jour son profil
+<% end %>
+
+<%= content_for(:description) do %>
+  Services locaux durables
+<% end %>
+
+<div class='main' id="no-result">
+  <div class= "bg-visitor" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
+   <div class= "filter-blue"></div>
+   <div class="container">
+     <div class="row">
+       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+         <div class="card bg-color-transparent">
+            <h1 class="text-center">Editer votre profil</h1>
+            <%= simple_form_for([current_loge, @user]) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :first_name, label: false, placeholder: 'Votre prénom' %>
+              <%= f.button :submit, 'OK', class: "btn-100 bg-major-action-color" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
