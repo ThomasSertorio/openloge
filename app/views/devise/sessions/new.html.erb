@@ -1,32 +1,33 @@
 <div class='main'>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="card-white-content">
+  <div class= "bg-visitor" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
+    <div class= "filter-blue"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card bg-color-transparent">
+            <div class="buttonFacebook">
+              <%= render "devise/shared/facebookConnect" %>
+            </div>
+            <div class="text-center">
+              <p>ou</p>
+            </div>
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :email, label: false, placeholder: 'Adresse email' %>
+                <%= f.input :password, label: false, placeholder: 'Mot de passe' %>
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
-        <div class="buttonFacebook">
-          <%= render "devise/shared/facebookConnect" %>
-        </div>
-        <div class="text-center">
-          <p>ou</p>
-        </div>
-          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <%= f.error_notification %>
-              <%= f.input :email, label: false, placeholder: 'Adresse email' %>
-              <%= f.input :password, label: false, placeholder: 'Mot de passe' %>
-              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                <%= f.button :submit, "Se connecter", class: "buttonSignInUp" %>
+            <% end %>
 
-              <%= f.button :submit, "Se connecter", class: "buttonSignInUp" %>
-
-          <% end %>
-
-          <div class='text-center'>
-            <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class:'text text-danger' %><br/>
-            <%= render 'devise/shared/signInUp' %>
+            <div class='text-center'>
+              <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class:'text text-danger' %><br/>
+              <%= render 'devise/shared/signInUp' %>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 </div>
+
