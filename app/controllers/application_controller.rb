@@ -2,13 +2,18 @@
   # include Pundit
 
   protect_from_forgery with: :exception
-
   before_action :authenticate_user!, unless: :pages_controller?
 
+  helper_method :current_loge
   # after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
   # after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
 
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  def current_loge
+    return unless current_user
+    @current_loge ||= current_user.find_principal_loge
+  end
 
   private
 
@@ -35,4 +40,5 @@
     flash[:error] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
     redirect_to(root_path)
   end
+
 end

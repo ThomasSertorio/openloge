@@ -9,6 +9,7 @@
         </div>
         <div class="text-center">
           <p>ou</p>
+          <p>La loge concernée est :<%= session[:loge_id] %></p>
         <h2><%= t('.sign_up', default: "Sign up") %></h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
