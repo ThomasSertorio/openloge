@@ -45,6 +45,8 @@ class User < ActiveRecord::Base
   has_many :bookings
   has_many :services
   has_many :messages
+    has_attached_file :picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
