@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   before_action :find_loge, only: [:show, :create]
 
   def show
+    authorize @booking
     @expert = @booking.service.user
     @messages = @booking.messages
     @messages.each do |message|
@@ -14,16 +15,19 @@ class BookingsController < ApplicationController
   end
 
   def new
-    p @expert = @service.user
-    p @booking = Booking.new
-    p @booking.service = @service
+    @expert = @service.user
+    @booking = Booking.new
+    authorize @booking
+    @booking.service = @service
   end
 
   def create
     @booking = Booking.new(booking_params)
+      authorize @booking
       @booking.user = current_user
       @booking.loge = @loge
-      @booking.status ="first contact made"
+      @booking.status = "first contact made"
+      @booking.save
     if @booking.save
       message = Message.new
         message.booking = @booking
@@ -55,6 +59,7 @@ class BookingsController < ApplicationController
 
   def find_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def find_loge
