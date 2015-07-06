@@ -8,8 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         p "==== User is not member of a Loge yet ====="
         if session[:loge_id].nil?
           p "==== He hasn't visited any Loge yet ====="
-          sign_in_and_redirect user, event: :authentication
-          set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
+          p "We should redirect him to a find a loge first!"
         else
           p "==== We suscribe him to the Loge he visited ====="
           # Add address to user
@@ -20,16 +19,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           member.loge = Loge.find(session[:loge_id])
           member.member_since = DateTime.now.to_date
           member.save
-          sign_in_and_redirect user, event: :authentication
-          set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
         end
       end
-
+        sign_in_and_redirect user, event: :authentication
+        set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
     else
       p "==== fb connect didn't work ====="
       session['devise.facebook_data'] = request.env['omniauth.auth']
       redirect_to new_user_registration_url
-
     end
   end
 end
