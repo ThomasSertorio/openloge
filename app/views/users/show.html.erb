@@ -1,9 +1,10 @@
+
 <div class="bg-visitor" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
   <div class="filter-blue"></div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="card margined-navbar bg-color-transparent">
+        <div class="card bg-color-transparent">
           <div class="text-center">
             <h2><%= @expert.first_name.capitalize %></h2>
             <div class="field-margined-bottom">
@@ -67,13 +68,13 @@
               <% "" %>
             <% end %>
             <li>
-              <strong>Description : </strong><%= @expert.personal_description %>
-            </li>
-            <li>
               <strong>Occupation / métier : </strong><%= @expert.occupation %>
             </li>
             <li>
               <strong>Commerce préféré dans le quartier : </strong><%= @expert.favorite_shop %>
+            </li>
+            <li>
+              <strong>Description : </strong><%= @expert.personal_description %>
             </li>
           </ul>
         </div>
