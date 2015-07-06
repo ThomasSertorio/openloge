@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @loge = Loge.find(params[:loge_id])
   end
 
-
-
+  def user_params
+    params.require(:user).permit(:picture)
+  end
 end

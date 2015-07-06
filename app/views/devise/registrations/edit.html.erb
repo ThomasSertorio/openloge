@@ -10,6 +10,10 @@
     <p>
       <%= t('.currently_waiting_confirmation_for_email', :email => resource.unconfirmed_email, :default => "Currently waiting confirmation for: %{email}") %>
     </p>
+    <p>
+      <%= f.label :picture %>
+      <%= f.file_field :picture %>
+    </p>
   <%- end -%>
 
   <div><%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it") %>)</i><br />
