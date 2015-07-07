@@ -36,11 +36,11 @@
               </div>
               <div class="col-xs-3">
                 <div class="loge-stat text-shadowed">
-                  <p><i class="fa fa-star"></i> <%= expert.reco %></p>
+                  <p><i class="fa fa-star"></i> <%= expert.received_reco %></p>
                   <p class="font-very-small">
-                    <% if expert.reco == 0 %>
+                    <% if expert.received_reco == 0 %>
                       <%= "Pas encore recommandé" %>
-                    <% elsif expert.reco == 1 %>
+                    <% elsif expert.received_reco == 1 %>
                       <%= "Recommandation" %>
                     <% else %>
                       <%= "Recommandations" %>
@@ -52,25 +52,25 @@
           </div>
         </div>
         <div>
-          <ul class="list-unstyled">
+          <ul class="list-unstyled text-left">
             <li>
-              <strong>Age : </strong><%= (Date.today.year - expert.birthday.year) %> ans
+              <i class="fa fa-pagelines"></i> <%= (Date.today.year - expert.birthday.year) %> ans
             </li>
             <% if expert.number_of_children != 0 %>
               <li>
-                <%= expert.number_of_children %> enfants
+                <i class="fa fa-child"></i> <%= expert.number_of_children %> enfants
               </li>
             <% else %>
               <% "" %>
             <% end %>
             <li>
-              <strong>Occupation / métier : </strong><%= expert.occupation %>
+              <i class="fa fa-briefcase"></i> <%= expert.occupation %>
             </li>
             <li>
-              <strong>Commerce préféré dans le quartier : </strong><%= expert.favorite_shop %>
+              <i class="fa fa-heart"></i> Commerce préféré dans le quartier : <%= expert.favorite_shop %>
             </li>
             <li>
-              <strong>Description : </strong><%= expert.personal_description %>
+              <i class="fa fa-file-text-o"></i> <%= expert.personal_description %>
             </li>
           </ul>
         </div>

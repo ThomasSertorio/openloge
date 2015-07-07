@@ -66,8 +66,8 @@
             <div class="card2 bg-color-transparent link-unstyled">
               <div>
                 <p><%= image_tag image_path(expert.first_name.downcase + ".jpg"), class:"img-profile" %></p>
-                <div id="reco"><i class="fa fa-star"></i> <%= expert.reco %></div>
-                <div id="services_done"><%= expert.services_done.size %> <i class="fa fa-book"></i></div>
+                <div id="reco"><i class="fa fa-star"></i> <%= expert.received_reco %></div>
+                <div id="services_done"><%= expert.services_done.size %> <i class="fa fa-smile-o"></i></div>
               </div>
               <h3 id="expert-name"><%= expert.first_name.capitalize %></h3>
               <p class="text-left"><% expert.categories.each do |category| %>

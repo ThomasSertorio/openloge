@@ -1,4 +1,103 @@
-<p><%= current_user %></p>
-<p><%= p current_user %></p>
-
-<p><%= image_tag image_path(@current_user.avatar), class:"img-profile" %></p>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="card bg-color-transparent">
+      <div class="text-center">
+        <h2>"First_Name"</h2>
+        <div class="field-margined-bottom">
+          <div>
+            <p><%= image_tag image_path(member.avatar), class:"img-profile" %></p>
+            <% if policy(member).update? && !member.profile_complete? %>
+              <%= link_to edit_loge_user_path(current_loge, current_user) do %>
+                <p>Votre profil est incomplet, mettez-le à jour!</p>
+              <% end %>
+            <% end %>
+          </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="loge-stat right-border text-shadowed">
+              <p class="font-very-small">Dans la loge depuis</p>
+              <p><i class="fa fa-birthday-cake"></i> <%= member.created_at.strftime("%Y") %></p>
+            </div>
+          </div>
+          <% if !member.neighbour_since.nil? %>
+            <div class="col-xs-3">
+              <div class="loge-stat right-border text-shadowed">
+                  <p class="font-very-small">Dans le quartier depuis</p>
+                  <p> <i class="fa fa-home"></i> <%= member.neighbour_since + (DateTime.now.year - member.created_at.year) %> ans</p>
+              </div>
+            </div>
+          <% end %>
+          <div class="col-xs-3">
+            <div class="loge-stat right-border text-shadowed">
+              <p><i class="fa fa-smile-o"></i> <%= member.services_booked.size %></p>
+              <p class="font-very-small">
+                <% if member.services_booked.size == 0 %>
+                  <%= "Pas encore de service commandé" %>
+                <% elsif member.services_done.size == 1 %>
+                  <%= "service commandé" %>
+                <% else %>
+                  <%= "services commandés" %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="loge-stat text-shadowed">
+              <p><i class="fa fa-star"></i> <%= member.given_reco %></p>
+              <p class="font-very-small">
+                <% if member.given_reco == 0 %>
+                  <%= "Aucun expert recommandé" %>
+                <% elsif member.given_reco == 1 %>
+                  <%= "expert recommandé" %>
+                <% else %>
+                  <%= "experts recommandés" %>
+                <% end %>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <ul class="list-unstyled text-left">
+        <% if !member.birthday.nil? %>
+          <li>
+              <i class="fa fa-pagelines"></i> <%= (Date.today.year - member.birthday.year) %> ans
+          </li>
+        <% end %>
+        <% if !(member.number_of_children == 0 || member.number_of_children.nil?) %>
+          <li>
+            <i class="fa fa-child"></i> <%= member.number_of_children %> enfants
+          </li>
+        <% end %>
+        <% if !(member.occupation.nil?) %>
+          <li>
+            <i class="fa fa-briefcase"></i> <%= member.occupation %>
+          </li>
+        <% end %>
+        <% if !(member.favorite_shop.nil?) %>
+          <li>
+            <i class="fa fa-heart"></i> Commerce préféré dans le quartier : <%= member.favorite_shop %>
+          </li>
+        <% end %>
+        <% if !(member.personal_description.nil?) %>
+          <li>
+            <i class="fa fa-file-text-o"></i> <%= member.personal_description %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+  <div class="card bg-color-transparent text-center">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <form class="searchButton"><%= link_to "Retour à la loge", loge_path(@loge) %></form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
