@@ -32,7 +32,7 @@
           <% end %>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag current_user.picture, class: "img-avatar" %>
+              <%= image_tag current_user.avatar, class: "img-avatar" %>
               <% if current_user.first_name.nil? %>
                 Profil <span class="caret"></span>
               <% else %>

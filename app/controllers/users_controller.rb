@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :find_user, only:  [:show, :edit, :update]
-  before_action :find_loge, only:  [:show, :update]
+  before_action :find_loge, only:  [:show, :edit, :update]
 
   def show
   end
@@ -31,6 +31,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:picture, :first_name)
+    params.require(:user).permit(:picture, :picture_facebook, :first_name, :last_name, :neighbour_since)
   end
 end

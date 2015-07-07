@@ -24,18 +24,19 @@
 #  personal_description   :text
 #  neighbour_since        :integer
 #  favorite_shop          :string
-#  latitude               :float
-#  longitude              :float
 #  provider               :string
 #  uid                    :string
 #  picture                :string
 #  name                   :string
 #  token                  :string
 #  token_expiry           :datetime
+#  latitude               :float
+#  longitude              :float
 #  picture_file_name      :string
 #  picture_content_type   :string
 #  picture_file_size      :integer
 #  picture_updated_at     :datetime
+#  picture_facebook       :string
 #
 # Indexes
 #
@@ -49,9 +50,10 @@ class User < ActiveRecord::Base
   has_many :bookings
   has_many :services
   has_many :messages
-    has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>" }
 
+  has_attached_file :picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -69,7 +71,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.name = auth.info.name
-      user.picture = auth.info.image
+      user.picture_facebook = auth.info.image.gsub("­http","htt­ps") + "?width=200&height=200"
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
@@ -81,6 +83,16 @@ class User < ActiveRecord::Base
       return nil
     else
       return self.memberships.first.loge
+    end
+  end
+
+  def avatar
+    if self.picture.present?
+      return self.picture
+    elsif self.picture_facebook
+      return self.picture_facebook
+    else
+      "pictures/original/missing.jpg"
     end
   end
 
@@ -168,6 +180,4 @@ class User < ActiveRecord::Base
   def profile_complete?
     ! (self.first_name.nil? || self.last_name.nil? || self.address.nil? || self.birthday.nil? || self.number_of_children || self.neighbour_since.nil? || self.occupation.nil? || self.favorite_shop.nil? ||  self.personal_description.nil?)
   end
-
-
 end
