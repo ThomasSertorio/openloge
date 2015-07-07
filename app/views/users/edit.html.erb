@@ -13,14 +13,18 @@
    <div class="container">
      <div class="row">
        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-          <div class="card bg-color-transparent">
+          <div class="card bg-color-transparent text-left">
             <h1 class="text-center">Editer votre profil</h1>
             <%= simple_form_for([current_loge, @user]) do |f| %>
               <%= f.error_notification %>
-              <%= f.input :first_name, label: false, placeholder: 'Votre prénom', class: "glyphicon glyphicon-user form-control-feedback" %>
-              <%= f.input :last_name, label: false, placeholder: 'Votre nom de famille (seule la première lettre sera affichée)' %>
-              <%= f.input :neighbour_since, label: false, placeholder: "Depuis combien d'années habitez-vous le quartier ?" %>
-              <%= f.input :picture, label: false %>
+              <%= f.input :first_name, label: "Prénom", placeholder: 'Votre prénom' %>
+              <%= f.input :last_name, label: "Nom", placeholder: 'Votre nom de famille (ne sera pas publié sur le site)' %>
+              <%= f.input :birthday, label: "Date de naissance", as: :string, :input_html => { data: {behaviour: "datepicker"}} %>
+              <%= f.input :neighbour_since, label: "Années de présence dans le quartier", placeholder: "Depuis combien d'années habitez-vous le quartier ?" %>
+              <%= f.input :occupation, label: "Profession", placeholder: "Quelle est votre profession actuelle ?" %>
+              <%= f.input :favorite_shop, label: "Commerce préféré", placeholder: "Quel est votre commerce préféré dans le quartier ?" %>
+              <%= f.input :personal_description, label: "A propos de vous", placeholder: "Dites en plus sur vous" %>
+              <%= f.input :picture, label: "Photo de profil" %>
               <%= f.button :submit, 'OK', class: "btn-100 bg-major-action-color" %>
             <% end %>
           </div>
