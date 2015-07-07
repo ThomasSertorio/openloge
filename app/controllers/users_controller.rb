@@ -5,6 +5,20 @@ class UsersController < ApplicationController
 
   def show
     @expert = @user
+    authorize @user
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to loge_user_path(@loge, @user)
+    else
+      render :edit
+    end
   end
 
   def edit
@@ -19,6 +33,7 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def find_loge
