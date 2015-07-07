@@ -25,7 +25,7 @@
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a class="text-major-action-color" href="#bookings-i-asked" aria-controls="bookings-i-asked" role="tab" data-toggle="tab">Mes demandes</a>
           </li>
-          <li role="presentation"><a class="text-major-action-color" href="#bookings-i-received" aria-controls="bookings-i-received" role="tab" data-toggle="tab">Mes services</a></li>
+          <li role="presentation"><a class="text-major-action-color" href="#bookings-i-received" aria-controls="bookings-i-received" role="tab" data-toggle="tab">On me fait appel</a></li>
         </ul>
       </div>
     </div>
@@ -35,36 +35,37 @@
         <!-- Tab panes -->
         <div class="tab-content bg-color">
           <!-- Bookings I asked -->
-          <div role="tabpanel" class="tab-pane active" id="bookings-i-asked">
-            <div class="table-wrapper">
-              <table class="table-booking">
-                <tbody>
-                  <tr>
-                    <th>Expert</th>
-                    <th>Détails</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
-                  <% @bookings_i_made.each do |booking| %>
+          <% if @bookings_i_made.present? %>
+            <div role="tabpanel" class="tab-pane active" id="bookings-i-asked">
+              <div class="table-wrapper">
+                <table class="table-booking">
+                  <tbody>
                     <tr>
-                      <td><%= image_tag booking.service.user.avatar, class: "img-small-profile" %></td>
-                      <td>
-                        <%= booking.service.title %><br>
-                        <ul class="list-unstyled">
-                          <li><i class="fa fa-calendar"></i> <%= booking.starts_at || "A fixer" %></li>
-                          <li><i class="fa fa-clock-o"></i> <%= booking.duration || "A fixer" %></li>
-                          <li><i class="fa fa-money"></i> A fixer</li>
-                        </ul>
-                      </td>
-                      <td><%= booking.status %></td>
-                      <td>Action</td>
+                      <th>Expert</th>
+                      <th>Détails</th>
+                      <th>Status</th>
+                      <th>Actions</th>
                     </tr>
-                  <% end %>
-                </tbody>
-              </table>
+                    <% @bookings_i_made.each do |booking| %>
+                      <tr>
+                        <td><%= image_tag booking.service.user.avatar, class: "img-small-profile" %></td>
+                        <td>
+                          <%= booking.service.title %><br>
+                          <ul class="list-unstyled">
+                            <li><i class="fa fa-calendar"></i> <%= booking.starts_at || "A fixer" %></li>
+                            <li><i class="fa fa-clock-o"></i> <%= booking.duration || "A fixer" %></li>
+                            <li><i class="fa fa-money"></i> A fixer</li>
+                          </ul>
+                        </td>
+                        <td><%= booking.status %></td>
+                        <td>Action</td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-
+          <% end %>
           <!-- Bookings I Received -->
           <div role="tabpanel" class="tab-pane" id="bookings-i-received">
             <div class="table-wrapper">
@@ -99,3 +100,17 @@
       </div>
     </div>
 </div>
+<% content_for :after_js do %>
+  <%= javascript_tag do %>
+    // Javascript to enable link to tab
+    var url = document.location.toString();
+    if (url.match('#')) {
+        $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+    }
+
+    // Change hash for page-reload
+    $('.nav-tabs a').on('shown.bs.tab', function (e) {
+        window.location.hash = e.target.hash;
+    })
+  <% end %>
+<% end %>
