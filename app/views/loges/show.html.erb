@@ -65,7 +65,7 @@
           <div class="col-xs-12 col-sm-3">
             <div class="card2 bg-color-transparent link-unstyled">
               <div>
-                <p><%= image_tag image_path(expert.first_name.downcase + ".jpg"), class:"img-profile" %></p>
+                <p><%= image_tag image_path(expert.avatar), class:"img-profile" %></p>
                 <div id="reco"><i class="fa fa-star"></i> <%= expert.received_reco %></div>
                 <div id="services_done"><%= expert.services_done.size %> <i class="fa fa-smile-o"></i></div>
               </div>
