@@ -74,6 +74,7 @@ user_bela = User.new
   user_bela.occupation = "Consultante"
   user_bela.favorite_shop = "Café A"
   user_bela.personal_description = "Formatrice professionnelle, Bela met toute sa pédagogie au service du quartier et propose …"
+  user_bela.picture = File.open("/Users/RB1/code/ThomasSertorio/openloge/app/assets/images/bela.jpg")
   user_bela.save
 
 user_michele = User.new
@@ -88,6 +89,7 @@ user_michele = User.new
   user_michele.occupation = "Cuisinier"
   user_michele.favorite_shop = "Café A"
   user_michele.personal_description = "CIAO! Vous souhaitez avoir un chef italien à domicile pour un dîner un peu exceptionnel ? Alors voilà …"
+  user_michele.picture = File.open("/Users/RB1/code/ThomasSertorio/openloge/app/assets/images/michele.jpg")
   user_michele.save
 
 user_alexandra = User.new
@@ -102,6 +104,7 @@ user_alexandra = User.new
   user_alexandra.occupation = "Etudiante en droit"
   user_alexandra.favorite_shop = "Café A"
   user_alexandra.personal_description = "De l’énergie et de la pédagogie pour apprendre et progresser ! Alexandra aide vos enfants à…"
+  user_alexandra.picture = File.open("/Users/RB1/code/ThomasSertorio/openloge/app/assets/images/alexandra.jpg")
   user_alexandra.save
 
 user_isa = User.new
@@ -116,6 +119,7 @@ user_isa = User.new
   user_isa.occupation = "Professeur de Yoga"
   user_isa.favorite_shop = "Café A"
   user_isa.personal_description = "Diplomée de la fédération française de yoga / Yoga Alliance USA au Studio Gérard Arnaud, après plus de vingt …"
+  user_isa.picture = File.open("/Users/RB1/code/ThomasSertorio/openloge/app/assets/images/isa.jpg")
   user_isa.save
 
 user_emile = User.new
@@ -130,6 +134,7 @@ user_emile = User.new
   user_emile.occupation = "Plombier à Velo"
   user_emile.favorite_shop = "Franprix Louix Blanc"
   user_emile.personal_description = "Emile prend du plaisir à bricoler, réflechir à votre problème et trouver la meilleure solution…"
+  user_emile.picture = File.open("/Users/RB1/code/ThomasSertorio/openloge/app/assets/images/emile.jpg")
   user_emile.save
 
 user_samara = User.new
@@ -144,6 +149,7 @@ user_samara = User.new
   user_samara.occupation = "Consultante RH"
   user_samara.favorite_shop = "Fromagerie Bellevaire"
   user_samara.personal_description = "Envie d’un colombo maison ? Samara vous propose ses talents de cuisinière et son expérience …"
+  user_samara.picture = File.open("/Users/RB1/code/ThomasSertorio/openloge/app/assets/images/samara.jpg")
   user_samara.save
 
 user_thibaut = User.new
@@ -158,6 +164,7 @@ user_thibaut = User.new
   user_thibaut.occupation = "Bricoleur - Vélo"
   user_thibaut.favorite_shop = "Fromagerie Bellevaire"
   user_thibaut.personal_description = "Dans le quartier depuis plus de 5 ans et Papa de 2 enfants, Thibaut est à votre disposition …"
+  user_thibaut.picture = File.open("/Users/RB1/code/ThomasSertorio/openloge/app/assets/images/thibaut.jpg")
   user_thibaut.save
 
 #Create Memberships

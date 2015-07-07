@@ -5,8 +5,9 @@
   background: $major-action-color;
   color: white;
   border-radius: 0px 5px 5px 0px;
-  padding-top: 0.6em;
-  padding-bottom: 0.6em;
+  padding-top: 0.73em;
+  padding-bottom: 0.73em;
+  border-color: lightgray;
   &:hover {
     background: $minor-action-color;
     color: white;
