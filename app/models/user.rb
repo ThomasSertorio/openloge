@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def reco
+  def received_reco
     reco = 0
     if self.is_expert?
       self.services.each do |service|
@@ -116,6 +116,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def given_reco
+    reco = 0
+    self.bookings.each do |booking|
+      if !booking.review.nil?
+        reco += 1 if booking.review.recommendation
+      end
+    end
+    return reco
+  end
+
   def services_done
     results = []
     if self.is_expert?
@@ -128,6 +138,11 @@ class User < ActiveRecord::Base
     else
       return []
     end
+  end
+
+  def services_booked
+    results = []
+    return self.bookings
   end
 
   def new_message?
@@ -148,6 +163,10 @@ class User < ActiveRecord::Base
       end
     end
     return false
+  end
+
+  def profile_complete?
+    ! (self.first_name.nil? || self.last_name.nil? || self.address.nil? || self.birthday.nil? || self.number_of_children || self.neighbour_since.nil? || self.occupation.nil? || self.favorite_shop.nil? ||  self.personal_description.nil?)
   end
 
 
