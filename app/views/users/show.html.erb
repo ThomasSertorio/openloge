@@ -2,7 +2,7 @@
 <div class="bg-visitor" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
   <div class="filter-blue"></div>
   <div class="container">
-    <% if current_user.is_expert? %>
+    <% if @user.is_expert? %>
       <%= render 'show_expert_profile', expert: @user %>
     <% else %>
       <%= render 'show_member_profile', member: @user %>
