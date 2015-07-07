@@ -24,18 +24,19 @@
 #  personal_description   :text
 #  neighbour_since        :integer
 #  favorite_shop          :string
-#  latitude               :float
-#  longitude              :float
 #  provider               :string
 #  uid                    :string
 #  picture                :string
 #  name                   :string
 #  token                  :string
 #  token_expiry           :datetime
+#  latitude               :float
+#  longitude              :float
 #  picture_file_name      :string
 #  picture_content_type   :string
 #  picture_file_size      :integer
 #  picture_updated_at     :datetime
+#  picture_facebook       :string
 #
 # Indexes
 #
@@ -69,7 +70,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.name = auth.info.name
-      user.picture = auth.info.image
+      user.picture_facebook = auth.info.image.gsub("­http","htt­ps") + "?width=200&height=200"
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
@@ -81,6 +82,16 @@ class User < ActiveRecord::Base
       return nil
     else
       return self.memberships.first.loge
+    end
+  end
+
+  def avatar
+    if self.picture
+      return self.picture
+    elsif self.picture_facebook
+      return self.picture_facebook
+    else
+      image_url("missing.png")
     end
   end
 
@@ -149,6 +160,5 @@ class User < ActiveRecord::Base
     end
     return false
   end
-
 
 end

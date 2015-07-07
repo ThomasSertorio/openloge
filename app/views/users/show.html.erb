@@ -20,8 +20,12 @@
               </div>
               <div class="col-xs-3">
                 <div class="loge-stat right-border text-shadowed">
-                  <p class="font-very-small">Dans le quartier depuis</p>
-                  <p> <i class="fa fa-home"></i> <%= @expert.neighbour_since + (DateTime.now.year - @expert.created_at.year) %> ans</p>
+                  <% if @expert.neighbour_since %>
+                    <p class="font-very-small">Dans le quartier depuis</p>
+                    <p> <i class="fa fa-home"></i> <%= @expert.neighbour_since + (DateTime.now.year - @expert.created_at.year) %> ans</p>
+                  <% else %>
+                    <p>""</p>
+                  <% end %>
                 </div>
               </div>
               <div class="col-xs-3">
@@ -57,9 +61,13 @@
         </div>
         <div>
           <ul class="list-unstyled">
-            <li>
-              <strong>Age : </strong><%= (Date.today.year - @expert.birthday.year) %> ans
-            </li>
+            <% if @expert.birthday %>
+              <li>
+                <strong>Age : </strong><%= (Date.today.year - @expert.birthday.year) %> ans
+              </li>
+              <% else %>
+                <% ""%>
+              <% end %>
             <% if @expert.number_of_children != 0 %>
               <li>
                 <%= @expert.number_of_children %> enfants

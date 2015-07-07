@@ -1,0 +1,19 @@
+<div class='main'>
+  <div class= "bg-visitor" style="background-image: url(<%= image_path("Photo_home.jpg") %>)">
+    <div class= "filter-blue"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card bg-color-transparent">
+            <h2><%#= t('.title', :resource => resource_class.model_name.human , :default => "Edit #{resource_name.to_s.humanize}") %></h2>
+            <%= simple_form_for([@loge, @user]) do |f| %>
+              <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
+              <%= f.input :picture %>
+              <%= f.button :submit, "Envoyer", class: "buttonSignInUp" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,18 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :find_user, only:  [:show]
-  before_action :find_loge, only:  [:show]
+  before_action :find_user, only:  [:show, :edit, :update]
+  before_action :find_loge, only:  [:show, :edit, :update]
 
   def show
     @expert = @user
+  end
+
+  def edit
+  end
+
+  def update
+    @user.update(user_params)
+    redirect_to loge_user_path(@loge, @user)
   end
 
   private
@@ -18,6 +26,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:picture)
+    params.require(:user).permit(:picture, :picture_facebook, :first_name)
   end
 end
