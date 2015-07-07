@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   before_action :find_loge, only:  [:show, :edit, :update]
 
   def show
-    @expert = @user
-    authorize @user
   end
 
   def edit
