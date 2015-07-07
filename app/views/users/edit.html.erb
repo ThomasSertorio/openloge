@@ -17,7 +17,10 @@
             <h1 class="text-center">Editer votre profil</h1>
             <%= simple_form_for([current_loge, @user]) do |f| %>
               <%= f.error_notification %>
-              <%= f.input :first_name, label: false, placeholder: 'Votre prénom' %>
+              <%= f.input :first_name, label: false, placeholder: 'Votre prénom', class: "glyphicon glyphicon-user form-control-feedback" %>
+              <%= f.input :last_name, label: false, placeholder: 'Votre nom de famille (seule la première lettre sera affichée)' %>
+              <%= f.input :neighbour_since, label: false, placeholder: "Depuis combien d'années habitez-vous le quartier ?" %>
+              <%= f.input :picture, label: false %>
               <%= f.button :submit, 'OK', class: "btn-100 bg-major-action-color" %>
             <% end %>
           </div>

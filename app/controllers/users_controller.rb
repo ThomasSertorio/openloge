@@ -19,14 +19,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    @user.update(user_params)
-    redirect_to loge_user_path(@loge, @user)
-  end
-
   private
 
   def find_user
@@ -39,6 +31,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:picture, :picture_facebook, :first_name)
+    params.require(:user).permit(:picture, :picture_facebook, :first_name, :last_name, :neighbour_since)
   end
 end

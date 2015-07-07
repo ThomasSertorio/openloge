@@ -50,9 +50,10 @@ class User < ActiveRecord::Base
   has_many :bookings
   has_many :services
   has_many :messages
-    has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>" }
 
+  has_attached_file :picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -86,12 +87,12 @@ class User < ActiveRecord::Base
   end
 
   def avatar
-    if self.picture
+    if self.picture.present?
       return self.picture
     elsif self.picture_facebook
       return self.picture_facebook
     else
-      image_url("missing.png")
+      "pictures/original/missing.jpg"
     end
   end
 
