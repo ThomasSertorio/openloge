@@ -46,13 +46,13 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "" do %>
-                  <i class="fa fa-user"></i> <%= t ".profile", default: "Mes demandes de services" %>
+                <%= link_to loge_bookings_path(current_loge) do %>
+                  <i class="fa fa-user"></i> <%= t ".profile", default: "Mes Demandes" %>
                 <% end %>
               </li>
               <li>
-                <%= link_to "" do %>
-                  <i class="fa fa-user"></i> <%= t ".profile", default: "On fait appel à mes services" %>
+                <%= link_to loge_bookings_path(current_loge) do %>
+                  <i class="fa fa-user"></i> <%= t ".profile", default: "Mes services" %>
                 <% end %>
               </li>
               <li>

@@ -1,0 +1,24 @@
+.table-booking {
+  width:100%
+}
+
+.table-booking>tbody>tr>td {
+  padding: 8px;
+  border-top: 1px solid #dce0e0;
+  vertical-align: top;
+  text-align:left;
+  font-size:12px;
+  background-color:white;
+}
+
+.table-booking>tbody>tr>th {
+  padding: 8px;
+  vertical-align: top;
+  text-align:left;
+  font-size:12px;
+}
+
+.table-wrapper{
+  background-color: #EEEEEE;
+  padding:1em;
+}

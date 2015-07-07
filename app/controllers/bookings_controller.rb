@@ -3,6 +3,14 @@ class BookingsController < ApplicationController
   before_action :find_service, only: [:new]
   before_action :find_loge, only: [:show, :create]
 
+
+  def index
+    @bookings_i_made = policy_scope(Booking).where(user: current_user)
+    @bookings_i_received = policy_scope(Booking)
+        .joins("LEFT OUTER JOIN services ON bookings.service_id = services.id")
+        .where("services.user_id = ?", current_user.id)
+  end
+
   def show
     authorize @booking
     @expert = @booking.service.user
