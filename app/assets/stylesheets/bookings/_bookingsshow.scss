@@ -7,7 +7,19 @@
   margin-top: 0px;
 }
 
+#chat{
+  margin-bottom:8em;
+
+}
+
+#new-message{
+  padding:1em;
+  border-bottom:1px solid $detail-color;
+  background-color:#EEEEEE;
+}
+
 #chat-room{
+  background-color:#EEEEEE;
   padding:1em;
   color:#555555;
   font-size:12px;
@@ -46,10 +58,7 @@
   clear:both;
 }
 
-#new-message{
-  padding:1em;
-  border-bottom:1px solid $detail-color;
-}
+
 
 
 #mission-description{
@@ -71,6 +80,23 @@
 #mission-update{
   text-align:left;
   padding:1em;
+  color:#555555;
+  font-size:12px;
+}
+
+.modal-title{
+
+}
+
+#modal-precision{
+  text-align:left;
+  color:#555555;
+  font-size:12px;
+  margin-bottom:2em;
+}
+
+#edit-mission{
+  text-align:left;
   color:#555555;
   font-size:12px;
 }
