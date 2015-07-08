@@ -36,8 +36,8 @@
   background: $bg-color;
   color:#555555
 }
-.bg-color-transparent {
-  background: $bg-color-transparent;
+.bg-color-white {
+  background: $bg-color-white;
 }
 .bg-major-action-color {
   background: $major-action-color;
@@ -52,7 +52,10 @@
 }
 
 .card {
-  margin:2em;
+  margin-top:2em;
+  margin-bottom:1em;
+  margin-left:1em;
+  margin-right:1em;
   padding:1em;
   border-radius: 2px;
 }
@@ -69,6 +72,13 @@
   background-color:rgba(100,100,100,0.85);
   width: auto;
   color: white;
+}
+
+.white-card {
+  margin:1em;
+  padding:1em;
+  background-color:white;
+  width:auto;
 }
 
 .right-border {
@@ -125,8 +135,7 @@
   height:200px;
   border:2px solid $major-action-color;
   border-radius:50%;
-  margin-top:2em;
-  margin-bottom:2em;
+  margin-top:1em;
 }
 .img-profile-small {
   height:60px;
