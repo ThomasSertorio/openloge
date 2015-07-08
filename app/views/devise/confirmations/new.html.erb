@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-          <div class="card bg-color-transparent">
+          <div class="card bg-color-white">
             <h2><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h2>
 
             <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>

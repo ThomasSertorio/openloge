@@ -63,7 +63,7 @@
       <% @loge.experts.each do |expert| %>
         <%= link_to loge_user_path(@loge, expert), class: "link-unstyled" do%>
           <div class="col-xs-12 col-sm-6 col-lg-3">
-            <div class="card2 bg-color-transparent link-unstyled">
+            <div class="card2 bg-color-white link-unstyled">
               <div>
                 <p><%= image_tag image_path(expert.avatar), class:"img-profile" %></p>
                 <div id="reco"><i class="fa fa-star"></i> <%= expert.received_reco %></div>

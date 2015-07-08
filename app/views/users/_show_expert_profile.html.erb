@@ -1,123 +1,109 @@
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="card bg-color-transparent">
-          <div class="text-center">
-            <h2><%= expert.first_name.capitalize %></h2>
-            <div class="field-margined-bottom">
-              <div>
-                <p><%= image_tag image_path(expert.avatar), class:"img-profile-big" %></p>
-              </div>
-            <div class="row">
-              <div class="col-xs-3">
-                <div class="loge-stat right-border text-shadowed">
-                  <p class="font-very-small">Dans la loge depuis</p>
-                  <p><i class="fa fa-birthday-cake"></i> <%= expert.created_at.strftime("%Y") %></p>
-                </div>
-              </div>
-              <div class="col-xs-3">
-                <div class="loge-stat right-border text-shadowed">
-                  <p class="font-very-small">Dans le quartier depuis</p>
-                  <p> <i class="fa fa-home"></i> <%= expert.neighbour_since + (DateTime.now.year - expert.created_at.year) %> ans</p>
-                </div>
-              </div>
-              <div class="col-xs-3">
-                <div class="loge-stat right-border text-shadowed">
-                  <p><i class="fa fa-smile-o"></i> <%= expert.services_done.size %></p>
-                  <p class="font-very-small">
-                    <% if expert.services_done.size == 0 %>
-                      <%= "Pas encore de service rendu" %>
-                    <% elsif expert.services_done.size == 1 %>
-                      <%= "Service rendu" %>
-                    <% else %>
-                      <%= "Services rendus" %>
-                    <% end %>
-                  </p>
-                </div>
-              </div>
-              <div class="col-xs-3">
-                <div class="loge-stat text-shadowed">
-                  <p><i class="fa fa-star"></i> <%= expert.received_reco %></p>
-                  <p class="font-very-small">
-                    <% if expert.received_reco == 0 %>
-                      <%= "Pas encore recommandé" %>
-                    <% elsif expert.received_reco == 1 %>
-                      <%= "Recommandation" %>
-                    <% else %>
-                      <%= "Recommandations" %>
-                    <% end %>
-                    </p>
-                </div>
-              </div>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="card">
+      <div class="text-center">
+        <p><%= image_tag image_path(expert.avatar), class:"img-profile-big" %></p>
+        <h2 id="profile-title"><%= expert.first_name.capitalize %></h2>
+      </div>
+    </div>
+    <div class="card bg-color-white">
+      <div class="row field-margined-bottom">
+        <div class="col-xs-3">
+            <div class="loge-stat right-border field-margined-bottom">
+              <p class="font-very-small">Dans la loge depuis</p>
+              <p><i class="fa fa-birthday-cake"></i> <%= expert.created_at.strftime("%Y") %></p>
             </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="loge-stat right-border">
+            <p class="font-very-small">Dans le quartier depuis</p>
+            <p> <i class="fa fa-home"></i> <%= expert.neighbour_since + (DateTime.now.year - expert.created_at.year) %> ans</p>
           </div>
         </div>
-        <div>
-          <ul class="list-unstyled text-left">
+        <div class="col-xs-3">
+          <div class="loge-stat right-border">
+            <p><i class="fa fa-smile-o"></i> <%= expert.services_done.size %></p>
+            <p class="font-very-small">
+              <% if expert.services_done.size == 0 %>
+                <%= "Pas encore de service rendu" %>
+              <% elsif expert.services_done.size == 1 %>
+                <%= "Service rendu" %>
+              <% else %>
+                <%= "Services rendus" %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="loge-stat">
+            <p><i class="fa fa-star"></i> <%= expert.received_reco %></p>
+            <p class="font-very-small">
+              <% if expert.received_reco == 0 %>
+                <%= "Pas encore recommandé" %>
+              <% elsif expert.received_reco == 1 %>
+                <%= "Recommandation" %>
+              <% else %>
+                <%= "Recommandations" %>
+              <% end %>
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <ul class="list-unstyled text-left">
+          <li>
+            <i class="fa fa-pagelines"></i> <%= (Date.today.year - expert.birthday.year) %> ans
+          </li>
+          <% if expert.number_of_children != 0 %>
             <li>
-              <i class="fa fa-pagelines"></i> <%= (Date.today.year - expert.birthday.year) %> ans
+              <i class="fa fa-child"></i> <%= expert.number_of_children %> enfants
             </li>
-            <% if expert.number_of_children != 0 %>
-              <li>
-                <i class="fa fa-child"></i> <%= expert.number_of_children %> enfants
+          <% else %>
+            <% "" %>
+          <% end %>
+          <li>
+            <i class="fa fa-briefcase"></i> <%= expert.occupation %>
+          </li>
+          <li>
+            <i class="fa fa-heart"></i> Commerce préféré dans le quartier : <%= expert.favorite_shop %>
+          </li>
+          <li>
+            <i class="fa fa-file-text-o"></i> <%= expert.personal_description %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card bg-color-white">
+      <h4>Services proposés par <%= expert.first_name.capitalize %> :</h4>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="text-left list-unstyled">
+            <% @user.services.each do |serv| %>
+              <li class="white-card"><h5><%= serv.title %></h5>
+                <p><%= serv.description %></p>
+                <p>Prix : XX€
+                  <% if serv.pricing_nature = "Horaire" %>
+                    <%= "par heure" %>
+                  <% else %>
+                    <% "" %>
+                  <% end %>
+                </p>
+                <form action="<%= "/loges/" + @loge.id.to_s + "/bookings/new" %>" method="get" class="form-inline">
+                <input type="hidden" name="service_id" value="<%= serv.id %>">
+                <button type="submit" class=" btn buttonContactExpert center-block">Envoyer une demande</button>
+                </form>
               </li>
-            <% else %>
-              <% "" %>
             <% end %>
-            <li>
-              <i class="fa fa-briefcase"></i> <%= expert.occupation %>
-            </li>
-            <li>
-              <i class="fa fa-heart"></i> Commerce préféré dans le quartier : <%= expert.favorite_shop %>
-            </li>
-            <li>
-              <i class="fa fa-file-text-o"></i> <%= expert.personal_description %>
-            </li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="card bg-color-transparent">
-          <h4>Services proposés par <%= expert.first_name.capitalize %> :</h4>
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="row">
-                <div class="col-xs-12 col-sm-11 col-sm-offset-1">
-                  <ul class="text-left list-unstyled">
-                    <% @user.services.each do |serv| %>
-                      <li class="gray-card"><h5><%= serv.title %></h5>
-                        <p><%= serv.description %></p>
-                        <p>Prix : XX€
-                          <% if serv.pricing_nature = "Horaire" %>
-                            <%= "par heure" %>
-                          <% else %>
-                            <% "" %>
-                          <% end %>
-                        </p>
-                        <form action="<%= "/loges/" + @loge.id.to_s + "/bookings/new" %>" method="get" class="form-inline">
-                        <input type="hidden" name="service_id" value="<%= serv.id %>">
-                        <button type="submit" class=" btn buttonContactExpert center-block">Envoyer une demande</button>
-                        </form>
-                      </li>
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="card bg-color-white text-center">
+      <div class="row">
+        <div class="col-xs-12">
+          <form class="searchButton"><%= link_to "Retour à la loge", loge_path(@loge) %></form>
         </div>
       </div>
     </div>
-   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <div class="card bg-color-transparent text-center">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="row">
-              <form class="searchButton"><%= link_to "Retour à la loge", loge_path(@loge) %></form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+</div>
