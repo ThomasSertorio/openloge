@@ -14,21 +14,21 @@
           </div>
         <div class="row">
           <div class="col-xs-3">
-            <div class="loge-stat right-border text-shadowed">
+            <div class="loge-stat right-border">
               <p class="font-very-small">Dans la loge depuis</p>
               <p><i class="fa fa-birthday-cake"></i> <%= member.created_at.strftime("%Y") %></p>
             </div>
           </div>
           <% if !member.neighbour_since.nil? %>
             <div class="col-xs-3">
-              <div class="loge-stat right-border text-shadowed">
+              <div class="loge-stat right-border">
                   <p class="font-very-small">Dans le quartier depuis</p>
                   <p> <i class="fa fa-home"></i> <%= member.neighbour_since + (DateTime.now.year - member.created_at.year) %> ans</p>
               </div>
             </div>
           <% end %>
           <div class="col-xs-3">
-            <div class="loge-stat right-border text-shadowed">
+            <div class="loge-stat right-border">
               <p><i class="fa fa-smile-o"></i> <%= member.services_booked.size %></p>
               <p class="font-very-small">
                 <% if member.services_booked.size == 0 %>
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="col-xs-3">
-            <div class="loge-stat text-shadowed">
+            <div class="loge-stat">
               <p><i class="fa fa-star"></i> <%= member.given_reco %></p>
               <p class="font-very-small">
                 <% if member.given_reco == 0 %>
