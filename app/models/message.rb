@@ -21,7 +21,14 @@ class Message < ActiveRecord::Base
   belongs_to :booking
   belongs_to :user
 
+  before_create :set_posted_at
+
   validates :user, presence: true
   validates :booking, presence: true
 
+  private
+
+  def set_posted_at
+    posted_at = Time.now
+  end
 end

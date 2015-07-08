@@ -28,6 +28,8 @@ class Booking < ActiveRecord::Base
   has_one   :review
   has_many   :messages
 
+  accepts_nested_attributes_for :messages
+
   validates :loge, presence: true
   validates :user, presence: true
   validates :service, presence: true

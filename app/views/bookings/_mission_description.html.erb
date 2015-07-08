@@ -36,10 +36,15 @@
         <div id="edit-mission">
           <p id="modal-precision"><strong>Note:</strong> Répondez à XXX et proposez-lui les conditions de la mission.</p>
         <!-- Mission Edit -->
-          <%= simple_form_for([@loge, @new_booking]) do |f| %>
+          <%= simple_form_for([loge, booking]) do |f| %>
             <%= f.input :starts_at, label:"Date de la mission", as: :string, :input_html => { data: {behaviour: "datepicker"}} %>
             <%= f.input :duration, label: "Durée prévue", placeholder: "Durée prévue" %>
             <p>Price<p>
+
+            <%= f.simple_fields_for :messages, [expert_message] do |message_form| %>
+              <%= message_form.input :user_id, as: :hidden %>
+              <%= message_form.input :content, as: :text %>
+            <% end %>
             <%= f.button :submit, "Proposer", class: "buttonChat" %>
           <% end %>
         </div>

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:show]
+  before_action :find_booking, only: [:show, :update]
   before_action :find_service, only: [:new]
-  before_action :find_loge, only: [:new, :show, :create]
+  before_action :find_loge, only: [:new, :update, :show, :create]
 
 
   def index
@@ -25,31 +25,28 @@ class BookingsController < ApplicationController
 
   def show
     authorize @booking
-    @expert = @booking.service.user
+
+    @expert   = @booking.service.user
     @messages = @booking.messages
+
     @messages.each do |message|
       message.new_message = false
     end
+
     @new_message = Message.new
-    @new_booking = Booking.new
+    @expert_message = Message.new(user: current_user)
   end
 
 
   def create
     @booking = Booking.new(booking_params)
-      authorize @booking
-      @booking.user = current_user
-      @booking.loge = @loge
-      @booking.status = "first contact made"
-      @booking.save
+    authorize @booking
+
+    @booking.user = current_user
+    @booking.loge = @loge
+    @booking.status = "first contact made"
+
     if @booking.save
-      message = Message.new
-        message.booking = @booking
-        message.user = current_user
-        message.posted_at = Time.now
-        message.content = @booking.description
-        message.new_message = true
-        message.save
       redirect_to loge_booking_path(@loge, @booking)
     else
       # Problem no more service id!
@@ -58,13 +55,26 @@ class BookingsController < ApplicationController
   end
 
   def update
+    if @booking.update(booking_params)
+      redirect_to loge_booking_path(@loge, @booking)
+    else
+      raise
+      # Problem no more service id!
+      render :edit
+    end
   end
 
 
   private
 
   def booking_params
-    params.require(:booking).permit(:description, :service_id)
+    params.require(:booking).permit(
+      :description,
+      :service_id,
+      :starts_at,
+      :duration,
+      messages_attributes: [:content, :user_id]
+    )
   end
 
   def find_service
