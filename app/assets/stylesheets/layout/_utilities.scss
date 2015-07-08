@@ -91,18 +91,6 @@
   font-size: 10px;
 }
 
-.img-profile {
-  height:120px;
-  border:1px solid $major-action-color;
-  border-radius:50%
-}
-
-.img-small-profile {
-  height:60px;
-  border:1px solid $major-action-color;
-  border-radius:50%
-}
-
 .link-unstyled {
   text-decoration:none;
   color:black;
@@ -128,6 +116,11 @@
   text-align: justify
 }
 
+.img-profile {
+  height:120px;
+  border:1px solid $major-action-color;
+  border-radius:50%
+}
 .img-profile-big {
   height:200px;
   border:2px solid $major-action-color;
@@ -135,3 +128,12 @@
   margin-top:2em;
   margin-bottom:2em;
 }
+.img-profile-small {
+  height:60px;
+  border:1px solid $major-action-color;
+  border-radius:50%
+}
+.margined-bottom-100 {
+  margin-bottom:10em;
+}
+

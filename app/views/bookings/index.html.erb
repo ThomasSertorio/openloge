@@ -12,8 +12,8 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="card">
-          <p><%= image_tag current_user.avatar, class: "img-avatar" %></p>
-          <h1>Mes petits services</h1>
+          <p><%= image_tag current_user.avatar, class: "img-profile" %></p>
+          <h1>Mes Services</h1>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="tab-content bg-color">
           <!-- Bookings I asked -->
           <% if @bookings_i_made.present? %>
-            <div role="tabpanel" class="tab-pane active" id="bookings-i-asked">
+            <div role="tabpanel" class="margined-bottom-100 tab-pane active" id="bookings-i-asked">
               <div class="table-wrapper">
                 <table class="table-booking">
                   <tbody>
@@ -48,7 +48,7 @@
                     </tr>
                     <% @bookings_i_made.each do |booking| %>
                       <tr>
-                        <td><%= image_tag booking.service.user.avatar, class: "img-small-profile" %></td>
+                        <td><%= image_tag booking.service.user.avatar, class: "img-profile-small" %></td>
                         <td>
                           <%= booking.service.title %><br>
                           <ul class="list-unstyled">
@@ -67,7 +67,7 @@
             </div>
           <% end %>
           <!-- Bookings I Received -->
-          <div role="tabpanel" class="tab-pane" id="bookings-i-received">
+          <div role="tabpanel" class="margined-bottom-100 tab-pane" id="bookings-i-received">
             <div class="table-wrapper">
               <table class="table-booking">
                 <tbody>
@@ -79,7 +79,7 @@
                   </tr>
                   <% @bookings_i_received.each do |booking| %>
                     <tr>
-                      <td><%= image_tag booking.service.user.avatar, class: "img-small-profile" %></td>
+                      <td><%= image_tag booking.user.avatar, class: "img-profile-small" %></td>
                       <td>
                         <%= booking.service.title %><br>
                         <ul class="list-unstyled">
