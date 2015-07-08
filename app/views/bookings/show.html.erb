@@ -44,7 +44,7 @@
         <!-- Tab panes -->
         <div class="tab-content bg-color">
           <!-- Chat -->
-          <div role="tabpanel" class="tab-pane active" id="chat">
+          <div role="tabpanel" class="margined-bottom-100 tab-pane active" id="chat">
             <div id="new-message">
               <%= simple_form_for([@loge, @booking, @new_message]) do |f| %>
                 <%= f.input :content, label: false,placeholder: 'Précisez votre demande' %>
@@ -82,7 +82,7 @@
           </div>
 
           <!-- Mission -->
-          <div role="tabpanel" class="tab-pane" id="mission">
+          <div role="tabpanel" class="margined-bottom-100 tab-pane" id="mission">
             <div id="mission-description">
               <h1 class="text-center"><%= @booking.service.title %></h1>
               <ul class="text-center list-inline">
