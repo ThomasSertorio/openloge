@@ -32,8 +32,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <h2>Nos échanges</h2>
         <div id="chat">
-          <h2>Nos échanges</h2>
+          <p class="text-left"><strong>Note</strong>: Utilisez le chat pour discuter avec XXXX tout au long de la mission.</p>
           <% if current_user == @booking.user %>
             <div id="new-message">
               <%= simple_form_for([@loge, @booking, @new_message]) do |f| %>

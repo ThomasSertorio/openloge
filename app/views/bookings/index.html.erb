@@ -47,19 +47,33 @@
                       <th>Actions</th>
                     </tr>
                     <% @bookings_i_made.each do |booking| %>
-                      <tr>
-                        <td><%= image_tag booking.service.user.avatar, class: "img-profile-small" %></td>
-                        <td>
-                          <%= booking.service.title %><br>
-                          <ul class="list-unstyled">
-                            <li><i class="fa fa-calendar"></i> <%= booking.starts_at || "A fixer" %></li>
-                            <li><i class="fa fa-clock-o"></i> <%= booking.duration || "A fixer" %></li>
-                            <li><i class="fa fa-money"></i> A fixer</li>
-                          </ul>
-                        </td>
-                        <td><%= booking.status %></td>
-                        <td>Action</td>
-                      </tr>
+                      <%= link_to loge_booking_path(current_loge, booking) do %>
+                        <tr>
+                          <td><%= image_tag booking.service.user.avatar, class: "img-profile-small" %></td>
+                          <td>
+                            <%= booking.service.title %><br>
+                            <ul class="list-unstyled">
+                              <li>
+                                <% if booking.starts_at %>
+                                  <i class="fa fa-calendar"></i> <%= booking.starts_at.strftime("%A %d %B") %>
+                                <% else %>
+                                  <i class="fa fa-calendar"></i> A fixer
+                                <% end %>
+                              </li>
+                              <li>
+                                <% if booking.duration %>
+                                  <i class="fa fa-clock-o"></i> <%= booking.duration %> h
+                                <% else %>
+                                  <i class="fa fa-clock-o"></i> A fixer
+                                <% end %>
+                              </li>
+                              <li><i class="fa fa-money"></i> A fixer</li>
+                            </ul>
+                          </td>
+                          <td><%= booking.status %></td>
+                          <td><%= link_to "Voir", loge_booking_path(current_loge, booking) %></td>
+                        </tr>
+                      <% end %>
                     <% end %>
                   </tbody>
                 </table>
@@ -81,10 +95,22 @@
                     <tr>
                       <td><%= image_tag booking.user.avatar, class: "img-profile-small" %></td>
                       <td>
-                        <%= booking.service.title %><br>
+                        <strong><%= booking.service.title %></strong><br>
                         <ul class="list-unstyled">
-                          <li><i class="fa fa-calendar"></i> <%= booking.starts_at || "A fixer" %></li>
-                          <li><i class="fa fa-clock-o"></i> <%= booking.duration || "A fixer" %></li>
+                          <li>
+                            <% if booking.starts_at %>
+                              <i class="fa fa-calendar"></i> <%= booking.starts_at.strftime("%A %d %B") %>
+                            <% else %>
+                              <i class="fa fa-calendar"></i> A fixer
+                            <% end %>
+                          </li>
+                          <li>
+                            <% if booking.duration %>
+                              <i class="fa fa-clock-o"></i> <%= booking.duration %> h
+                            <% else %>
+                              <i class="fa fa-clock-o"></i> A fixer
+                            <% end %>
+                          </li>
                           <li><i class="fa fa-money"></i> A fixer</li>
                         </ul>
                       </td>

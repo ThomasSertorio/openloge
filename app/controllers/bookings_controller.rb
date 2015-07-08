@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:show, :update]
+  before_action :find_booking, only: [:show, :update, :accept, :refuse, :mission_done]
   before_action :find_service, only: [:new]
-  before_action :find_loge, only: [:new, :update, :show, :create]
+  before_action :find_loge, only: [:new, :update, :accept, :refuse, :mission_done, :show, :create]
 
 
   def index
@@ -39,14 +39,11 @@ class BookingsController < ApplicationController
 
 
   def create
-    @booking = Booking.new(booking_params)
-    authorize @booking
+  end
 
-    @booking.user = current_user
-    @booking.loge = @loge
-    @booking.status = "first contact made"
-
-    if @booking.save
+  def update
+    if @booking.update(booking_params)
+      @booking.compute_status
       redirect_to loge_booking_path(@loge, @booking)
     else
       # Problem no more service id!
@@ -54,13 +51,22 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
-    if @booking.update(booking_params)
-      redirect_to loge_booking_path(@loge, @booking)
-    else
-      # Problem no more service id!
-      redirect_to loge_booking_path(@loge, @booking)
-    end
+  def accept
+    @booking.status = "En attente de réalisation"
+    @booking.save
+    redirect_to loge_booking_path(@loge, @booking)
+  end
+
+  def refuse
+    @booking.status = "En discussion"
+    @booking.save
+    redirect_to loge_booking_path(@loge, @booking)
+  end
+
+  def mission_done
+    @booking.status = "Mission Réalisée"
+    @booking.save
+    redirect_to loge_booking_path(@loge, @booking)
   end
 
 
