@@ -80,9 +80,15 @@ $navbar-profile-border-width: 2px;
   .navbar-brand,
   .navbar-brand:hover {
     outline: none;
-    color: $navbar-color;
     padding-top: $navbar-vertical-padding;
     padding-bottom: $navbar-vertical-padding;
+    color: white;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .navbar-brand:hover {
+    color:$major-action-color;
   }
 
   .navbar-nav > li > a.btn {
@@ -153,9 +159,8 @@ $navbar-profile-border-width: 2px;
     .navbar-brand, .navbar-brand:hover
      {
       display: block;
-      color: $navbar-color;
-      padding-top: 0;
-      padding-bottom: 0;
+      color: white;
+      padding-top:15px;
     }
   }
 }

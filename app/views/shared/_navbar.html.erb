@@ -9,9 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <% if user_signed_in? && !current_loge.nil? %>
-        <%= link_to loge_path(current_loge), class: "navbar-brand" do %>
-          Loge de la loge
-        <% end %>
+        <%= link_to current_loge.name, loge_path(current_loge), class: "navbar-brand"%>
       <% else %>
         <a class="navbar-brand" href="/">
           <%= image_tag "Logo_150x150.png" %>
