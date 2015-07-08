@@ -3,7 +3,13 @@
     <h3 class="text-left">Mission: <%= booking.service.title %></h3>
     <ul class="text-left list-inline">
       <li>Conditions: </li>
-      <li><i class="fa fa-calendar"></i> <%= booking.starts_at || "A fixer" %> | </li>
+      <li>
+        <% if booking.starts_at %>
+          <i class="fa fa-calendar"></i> <%= booking.starts_at.strftime("%A %d %B") %>  |
+        <% else %>
+          <i class="fa fa-calendar"></i> A fixer  |
+        <% end %>
+      </li>
       <li>
         <i class="fa fa-clock-o"></i>
         <% if booking.duration.nil? %>
