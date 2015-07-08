@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :find_booking, only: [:show]
   before_action :find_service, only: [:new]
-  before_action :find_loge, only: [:show, :create]
+  before_action :find_loge, only: [:new, :show, :create]
 
 
   def index
@@ -9,6 +9,18 @@ class BookingsController < ApplicationController
     @bookings_i_received = policy_scope(Booking)
         .joins("LEFT OUTER JOIN services ON bookings.service_id = services.id")
         .where("services.user_id = ?", current_user.id)
+  end
+
+  def new
+    @expert = @service.user
+    @booking = Booking.new
+      authorize @booking
+      @booking.loge = @loge
+      @booking.service = @service
+      @booking.user = current_user
+      @booking.status = "Demande d'information"
+      @booking.save
+    redirect_to loge_booking_path(@loge, @booking)
   end
 
   def show
@@ -22,12 +34,6 @@ class BookingsController < ApplicationController
     @new_booking = Booking.new
   end
 
-  def new
-    @expert = @service.user
-    @booking = Booking.new
-    authorize @booking
-    @booking.service = @service
-  end
 
   def create
     @booking = Booking.new(booking_params)
