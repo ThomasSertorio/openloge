@@ -5,7 +5,7 @@
       <li>Conditions: </li>
       <li><i class="fa fa-calendar"></i> <%= booking.starts_at || "A fixer" %> | </li>
       <li><i class="fa fa-clock-o"></i> <%= booking.duration || "A fixer" %> | </li>
-      <li><i class="fa fa-money"></i> "A fixer"</li>
+      <li><i class="fa fa-money"></i> A fixer</li>
     </ul>
     <% if !booking.description.nil? %>
       <p>Description: <%= booking.description %></p>
@@ -14,7 +14,40 @@
   <div class="small-card-white">
     <ul class="text-center list-inline">
       <li>Status: <%= booking.status %></li>
-      <li>Action</li>
+      <li>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn buttonMission" data-toggle="modal" data-target="#myModal">
+          Proposer la mission
+        </button>
+      </li>
     </ul>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-left text-major-action-color" id="myModalLabel">Mise au point de la mission</h4>
+      </div>
+      <div class="modal-body">
+        <div id="edit-mission">
+          <p id="modal-precision"><strong>Note:</strong> Répondez à XXX et proposez-lui les conditions de la mission.</p>
+        <!-- Mission Edit -->
+          <%= simple_form_for([@loge, @new_booking]) do |f| %>
+            <%= f.input :starts_at, label:"Date de la mission", as: :string, :input_html => { data: {behaviour: "datepicker"}} %>
+            <%= f.input :duration, label: "Durée prévue", placeholder: "Durée prévue" %>
+            <p>Price<p>
+            <%= f.button :submit, "Proposer", class: "buttonChat" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>

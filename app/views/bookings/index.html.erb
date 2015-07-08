@@ -89,7 +89,7 @@
                         </ul>
                       </td>
                       <td><%= booking.status %></td>
-                      <td>Action</td>
+                      <td><%= link_to "Voir", loge_booking_path(current_loge, booking) %></td>
                     </tr>
                   <% end %>
                 </tbody>

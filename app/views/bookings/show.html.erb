@@ -12,11 +12,11 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="card">
-          <p><%= image_tag current_user.avatar, class: "img-profile" %> -----
+          <p><%= image_tag @booking.user.avatar, class: "img-profile" %> -----
           <%= image_tag image_path(@expert.avatar), class: "img-profile" %>
           </p>
           <% if current_user == @expert %>
-            <h1><%= @booking.user.name.capitalize %> a besoin de moi</h1>
+            <h1>XXX a besoin de moi</h1>
           <% else %>
             <h1>Je fais appel à <%= @expert.first_name.capitalize %></h1>
           <% end %>
@@ -32,74 +32,47 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a class="text-major-action-color" href="#chat" aria-controls="chat" role="tab" data-toggle="tab">Mes échanges</a>
-          </li>
-          <li role="presentation"><a class="text-major-action-color" href="#mission" aria-controls="mission" role="tab" data-toggle="tab">Mission</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <!-- Tab panes -->
-        <div class="tab-content bg-color">
-          <!-- Chat -->
-          <div role="tabpanel" class="margined-bottom-100 tab-pane active" id="chat">
+        <div id="chat">
+          <h2>Nos échanges</h2>
+          <% if current_user == @booking.user %>
             <div id="new-message">
               <%= simple_form_for([@loge, @booking, @new_message]) do |f| %>
                 <%= f.input :content, label: false,placeholder: 'Précisez votre demande' %>
                 <%= f.button :submit, "Envoyer", class: "buttonChat" %>
               <% end %>
             </div>
-            <div id="chat-room">
-              <% @messages.each do |message| %>
-                <% if message.user == @booking.user %>
-                <div class="row">
-                  <div class="user-message">
-                    <p class="text-left">
-                      <%= message.content %>
-                    </p>
-                    <p class="posted-at">
+          <% end %>
+          <div id="chat-room">
+            <% @messages.each do |message| %>
+              <% if message.user == @booking.user %>
+              <div class="row">
+                <div class="user-message">
+                  <p class="text-left">
+                    <%= message.content %>
+                  </p>
+                  <p class="posted-at">
+                  <%= message.posted_at.strftime("%A %d at %kh%M" ) %>
+                  </p>
+                </div>
+              </div>
+              <% else %>
+              <div class="row">
+                <div  class="expert-message">
+                  <p class="text-right">
+                    <%= message.content %>
+                  </p>
+                  <p class="posted-at">
                     <%= message.posted_at.strftime("%A %d at %kh%M" ) %>
-                    </p>
-                  </div>
+                  </p>
                 </div>
-                <% else %>
-                <div class="row">
-                  <div  class="expert-message">
-                    <p class="text-right">
-                      <%= message.content %>
-                    </p>
-                    <p class="posted-at">
-                      <%= message.posted_at.strftime("%A %d at %kh%M" ) %>
-                    </p>
-                  </div>
-                </div>
-                <% end %>
+              </div>
               <% end %>
-              <div id="escape"></div>
-            </div>
-          </div>
-
-          <!-- Mission -->
-          <div role="tabpanel" class="margined-bottom-100 tab-pane" id="mission">
-            <%= render 'mission_description', booking: @booking %>
-            <div id="mission-update">
-              <% if current_user == @expert %>
-                <%= current_user %>
-                <%= @expert %>
-                <%= simple_form_for([@loge, @new_booking]) do |f| %>
-                  <%= f.input :starts_at, label: false %>
-                  <%= f.input :duration, label: false, placeholder: "Durée prévue" %>
-                  <%= "Price" %>
-                  <%= f.button :submit, "Proposer", class: "buttonChat" %>
-                <% end %>
-              <% end %>
-            </div>
+            <% end %>
+            <div id="escape"></div>
           </div>
         </div>
+
+
       </div>
     </div>
 </div>
