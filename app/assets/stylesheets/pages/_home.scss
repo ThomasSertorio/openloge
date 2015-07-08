@@ -1,18 +1,12 @@
 #bg-home {
-  position: relative;
-  background-image: image_url("Photo_home.jpg");
-  background-size: cover;
   text-align: center;
   color: white;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  padding-top: 12em;
   text-shadow: 1px 1px 2px darken($minor-action-color, 40%);
-  margin-top: 0px;
   h3 {
     font-family: $header-font;
     font-size: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 1em;
   }
   h4 {
     font-family: $base-font;
@@ -21,75 +15,18 @@
   }
 }
 
+body {
+  background-image: image-url('Photo_home.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
 .bg-visitor {
   position: relative;
-  height: 100%;
-  background-size: cover;
   text-align: center;
-  display: flex;
-  align-items: center;
-  padding-top: 3em;
-  background-attachment:fixed;
-}
-
-.devise-passwords-height100 {
-  height: 100%;
-  body {
-    height: 100%;
-    .main {
-      height: 100%;
-    }
-  }
-}
-
-.devise-confirmations-height100 {
-  height: 100%;
-  body {
-    height: 100%;
-    .main {
-      height: 100%;
-    }
-  }
-}
-
-
-.users-registrations-height100 {
-  height: 100%;
-  body {
-    height: 100%;
-    .main {
-      height: 100%;
-    }
-  }
-}
-
-.devise-sessions-height100 {
-  height: 100%;
-  body {
-    height: 100%;
-    .main {
-      height: 100%;
-    }
-  }
-}
-
-
-.devise-registrations-height100 {
-  height: 100%;
-  body {
-    height: 100%;
-    .main {
-      height: 100%;
-    }
-  }
-}
-
-.high_voltage-pages-height100 {
-  height: 100%;
-
-  body {
-    height: 100%;
-  }
+  padding-top: 10em;
 }
 
 #user_input_autocomplete_address {
@@ -102,5 +39,8 @@
 {
   #user_input_autocomplete_address {
     border-radius: 3px 3px 3px 3px;
+  }
+  .bg-visitor {
+  padding-top: 4em;
   }
 }

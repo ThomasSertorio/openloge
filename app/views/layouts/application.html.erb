@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class='<%= "#{params[:controller]}".gsub('/', '-') + "-height100" %>'>
+<html class='<%= "#{params[:controller]}".gsub('/', '-') %>'>
 <head>
   <title><%= yield(:title) || "OpenLoge" %></title>
   <meta name="description" content="<%= (yield(:description) || "").squish %>">
@@ -16,6 +16,14 @@
   <%= yield %>
   <%= javascript_include_tag :application %>
   <%= yield(:after_js) %>
-
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var height = $(window).height()
+      $('.filter-blue').css('min-height', height);
+      $(window).on('resize', function() {
+        $('.filter-blue').css('min-height', height);
+      })
+    })
+  <% end %>
 </body>
 </html>
