@@ -28,7 +28,7 @@ class Booking < ActiveRecord::Base
   has_one   :review
   has_many   :messages
 
-  accepts_nested_attributes_for :messages
+  accepts_nested_attributes_for :messages, reject_if: proc { |attributes| attributes['content'].blank? }
 
   validates :loge, presence: true
   validates :user, presence: true

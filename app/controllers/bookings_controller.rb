@@ -50,7 +50,7 @@ class BookingsController < ApplicationController
       redirect_to loge_booking_path(@loge, @booking)
     else
       # Problem no more service id!
-      render :new
+      redirect_to loge_booking_path(@loge, @booking)
     end
   end
 
@@ -58,9 +58,8 @@ class BookingsController < ApplicationController
     if @booking.update(booking_params)
       redirect_to loge_booking_path(@loge, @booking)
     else
-      raise
       # Problem no more service id!
-      render :edit
+      redirect_to loge_booking_path(@loge, @booking)
     end
   end
 

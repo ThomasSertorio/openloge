@@ -25,6 +25,7 @@ class Message < ActiveRecord::Base
 
   validates :user, presence: true
   validates :booking, presence: true
+  validates :content, presence: true
 
   private
 
