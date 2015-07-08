@@ -10,7 +10,13 @@
 
 #chat{
   margin-bottom:8em;
-
+  background-color:#EEEEEE;
+  color:#555555;
+  padding-top:1em;
+  padding-bottom:1em;
+  p {
+    margin-left:1em;
+  }
 }
 
 #new-message{

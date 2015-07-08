@@ -170,3 +170,43 @@
     margin-right: 10px;
   }
 }
+
+.buttonMissionGreen {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  background: #009AAB;
+  border-radius: 3px;
+  padding: 5px;
+  &:hover {
+    color: white;
+    background: $detail-color;
+    cursor: pointer;
+  }
+  & a {
+    color: white;
+  }
+  & i {
+    margin-right: 10px;
+  }
+}
+
+.buttonMissionGrey {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  background: $detail-color;
+  border-radius: 3px;
+  padding: 5px;
+  &:hover {
+    color: white;
+    background: $detail-color;
+    cursor: pointer;
+  }
+  & a {
+    color: white;
+  }
+  & i {
+    margin-right: 10px;
+  }
+}
