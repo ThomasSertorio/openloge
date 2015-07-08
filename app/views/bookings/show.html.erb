@@ -25,7 +25,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <%= render 'mission_description', booking: @booking %>
+        <%= render 'mission_description', loge: @loge, booking: @booking, expert_message: @expert_message %>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@
                     <%= message.content %>
                   </p>
                   <p class="posted-at">
-                  <%= message.posted_at.strftime("%A %d at %kh%M" ) %>
+                    <%= message.created_at.strftime("%A %d at %kh%M" ) %>
                   </p>
                 </div>
               </div>
@@ -62,7 +62,7 @@
                     <%= message.content %>
                   </p>
                   <p class="posted-at">
-                    <%= message.posted_at.strftime("%A %d at %kh%M" ) %>
+                    <%= message.created_at.strftime("%A %d at %kh%M" ) %>
                   </p>
                 </div>
               </div>
