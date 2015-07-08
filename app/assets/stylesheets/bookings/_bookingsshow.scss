@@ -54,14 +54,16 @@
 
 #mission-description{
   text-align:left;
+  background-color:#EEEEEE;
   padding:1em;
   color:#555555;
   font-size:12px;
-  h1{
-    font-size:20px;
+  margin-bottom:2em;
+  h3{
+    font-size:16px;
+    margin-top:0px;
   }
   ul{
-    font-szie:16px;
     font-weight:bold;
   }
 }

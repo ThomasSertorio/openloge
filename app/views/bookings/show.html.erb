@@ -15,15 +15,17 @@
           <p><%= image_tag current_user.avatar, class: "img-profile" %> -----
           <%= image_tag image_path(@expert.avatar), class: "img-profile" %>
           </p>
-          <h1>
-            Mes échanges avec
-            <% if current_user == @expert %>
-              <%= @booking.user.name.capitalize %>
-            <% else %>
-              <%= @expert.first_name.capitalize %>
-            <% end %>
-          </h1>
+          <% if current_user == @expert %>
+            <h1><%= @booking.user.name.capitalize %> a besoin de moi</h1>
+          <% else %>
+            <h1>Je fais appel à <%= @expert.first_name.capitalize %></h1>
+          <% end %>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%= render 'mission_description', booking: @booking %>
       </div>
     </div>
   </div>
@@ -83,15 +85,7 @@
 
           <!-- Mission -->
           <div role="tabpanel" class="margined-bottom-100 tab-pane" id="mission">
-            <div id="mission-description">
-              <h1 class="text-center"><%= @booking.service.title %></h1>
-              <ul class="text-center list-inline">
-                <li><i class="fa fa-calendar"></i> <%= @booking.starts_at || "A fixer" %> | </li>
-                <li><i class="fa fa-clock-o"></i> <%= @booking.duration || "A fixer" %> | </li>
-                <li><i class="fa fa-money"></i> "A fixer"</li>
-              </ul>
-              <p>Description: <%= @booking.service.description %></p>
-            </div>
+            <%= render 'mission_description', booking: @booking %>
             <div id="mission-update">
               <% if current_user == @expert %>
                 <%= current_user %>
