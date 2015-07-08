@@ -62,7 +62,7 @@
     <div class="row">
       <% @loge.experts.each do |expert| %>
         <%= link_to loge_user_path(@loge, expert), class: "link-unstyled" do%>
-          <div class="col-xs-12 col-sm-3">
+          <div class="col-xs-12 col-sm-6 col-lg-3">
             <div class="card2 bg-color-transparent link-unstyled">
               <div>
                 <p><%= image_tag image_path(expert.avatar), class:"img-profile" %></p>
@@ -74,7 +74,7 @@
                   <a class="btn buttonCategory" href="#" role="button"><%= category %></a>
                 <% end %>
               </p>
-              <p class="text-left" id="expert-description"><%= expert.personal_description[0..100] + "..." %></p>
+              <p class="text-left" id="expert-description"><%= expert.personal_description[0..90] + "..." %></p>
               <%= link_to "Me Contacter", loge_user_path(@loge, expert), class:"btn buttonContactExpert" %></a>
             </div>
           </div>
