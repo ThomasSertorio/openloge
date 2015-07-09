@@ -178,6 +178,34 @@ class User < ActiveRecord::Base
     return false
   end
 
+  def new_message_from_expert?
+    new_message_from_expert = 0
+    self.bookings.each do |booking|
+      booking.messages.each do |message|
+        new_message_from_expert += 1 if message.user != self && message.new_message
+      end
+    end
+    return new_message_from_expert
+  end
+
+  def new_message_from_client?
+    new_message_from_client = 0
+    if self.is_expert?
+      self.services.each do |service|
+        service.bookings.each do |booking|
+          booking.messages.each do |message|
+            new_message_from_client += 1 if message.user != self && message.new_message
+          end
+        end
+      end
+    end
+    return new_message_from_client
+  end
+
+  def has_new_message?
+    return self.new_message_from_expert? + self.new_message_from_client?
+  end
+
   def profile_complete?
     ! (self.first_name.nil? || self.last_name.nil? || self.address.nil? || self.birthday.nil? || self.number_of_children || self.neighbour_since.nil? || self.occupation.nil? || self.favorite_shop.nil? ||  self.personal_description.nil?)
   end
