@@ -43,10 +43,12 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    if @booking.starts_at && @booking.duration #&&price
+    if @booking.starts_at && @booking.duration
       @booking.status = "En attente de validation"
+      @booking.price = @booking.service.price * @booking.duration
     else
       @booking.status = "En discussion"
+      @booking.price = @booking.service.price * @booking.duration if @booking.duration
     end
     @booking.save
     redirect_to loge_booking_path(@loge, @booking)

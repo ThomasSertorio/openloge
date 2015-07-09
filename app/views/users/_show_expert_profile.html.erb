@@ -88,14 +88,12 @@
           <ul class="text-left list-unstyled">
             <% @user.services.each do |serv| %>
               <li class="white-card"><h5><%= serv.title %></h5>
-                <p><%= serv.description %></p>
-                <p>Prix : XX€
-                  <% if serv.pricing_nature = "Horaire" %>
-                    <%= "par heure" %>
-                  <% else %>
-                    <% "" %>
-                  <% end %>
-                </p>
+                <p class="text-justify"><%= serv.description %></p>
+                <% if serv.pricing_nature == "Horaire" %>
+                  <p><i class="fa fa-money"></i> <%= humanized_money(serv.price) %>€ / heure</p>
+                <% else %>
+                  <p><i class="fa fa-money"></i> A partir de <%= humanized_money(serv.price) %>€</p>
+                <% end %>
                 <form action="<%= "/loges/" + @loge.id.to_s + "/bookings/new" %>" method="get" class="form-inline">
                 <input type="hidden" name="service_id" value="<%= serv.id %>">
                 <button type="submit" class=" btn buttonContactExpert center-block">Me contacter</button>
