@@ -45,7 +45,7 @@ user_alban = User.new
   user_alban.neighbour_since = 4
   user_alban.occupation = "Entrepreneur"
   user_alban.favorite_shop = "Café A"
-  user_alban.personal_description = "Bio"
+  user_alban.personal_description = "Entrepreneur et passionné par OpenLoge, Alban saura, entre autres, vous rendre service quand vous n'êtes pas disponible."
   user_alban.save
 
 user_thomas = User.new
@@ -73,7 +73,7 @@ user_bela = User.new
   user_bela.neighbour_since = 4
   user_bela.occupation = "Consultante"
   user_bela.favorite_shop = "Café A"
-  user_bela.personal_description = "Formatrice professionnelle, Bela met toute sa pédagogie au service du quartier et propose …"
+  user_bela.personal_description = "Intervention/dépannage informatique en urgence, un accompagnement vers l'autonomie ou une formation plus avancée."
   user_bela.picture = File.open(Rails.root.join("app/assets/images/bela.jpg"))
   user_bela.save
 
@@ -88,7 +88,7 @@ user_michele = User.new
   user_michele.neighbour_since = 4
   user_michele.occupation = "Cuisinier"
   user_michele.favorite_shop = "Café A"
-  user_michele.personal_description = "CIAO! Vous souhaitez avoir un chef italien à domicile pour un dîner un peu exceptionnel ? Alors voilà …"
+  user_michele.personal_description = "Journaliste cuisinier littéraire, Michele aime la cuisine italienne et les lettres. Il sait communiquer sa passion des bons terroirs. "
   user_michele.picture = File.open(Rails.root.join("app/assets/images/michele.jpg"))
   user_michele.save
 
@@ -103,7 +103,7 @@ user_alexandra = User.new
   user_alexandra.neighbour_since = 21
   user_alexandra.occupation = "Etudiante en droit"
   user_alexandra.favorite_shop = "Café A"
-  user_alexandra.personal_description = "De l’énergie et de la pédagogie pour apprendre et progresser ! Alexandra aide vos enfants à…"
+  user_alexandra.personal_description = "Etudiante avocate (barreau) polyglotte, Alexandra garde vos enfants et leur donne des cours particuliers jusqu'à la Terminale."
   user_alexandra.picture = File.open(Rails.root.join("app/assets/images/alexandra.jpg"))
   user_alexandra.save
 
@@ -118,7 +118,7 @@ user_isa = User.new
   user_isa.neighbour_since = 25
   user_isa.occupation = "Professeur de Yoga"
   user_isa.favorite_shop = "Café A"
-  user_isa.personal_description = "Diplomée de la fédération française de yoga / Yoga Alliance USA au Studio Gérard Arnaud, après plus de vingt …"
+  user_isa.personal_description = "Comédienne/metteur en scène et désormais professeur de yoga, Isa vous accompagne dans votre pratique du Yoga."
   user_isa.picture = File.open(Rails.root.join("app/assets/images/isa.jpg"))
   user_isa.save
 
@@ -133,7 +133,7 @@ user_emile = User.new
   user_emile.neighbour_since = 17
   user_emile.occupation = "Plombier à Velo"
   user_emile.favorite_shop = "Franprix Louix Blanc"
-  user_emile.personal_description = "Emile prend du plaisir à bricoler, réflechir à votre problème et trouver la meilleure solution…"
+  user_emile.personal_description = "Plombier, bricoleur, jardinier, cours de roller, aide à la vie quotidienne, Emile est humaniste et aime rendre service."
   user_emile.picture = File.open(Rails.root.join("app/assets/images/emile.jpg"))
   user_emile.save
 
@@ -148,7 +148,7 @@ user_samara = User.new
   user_samara.neighbour_since = 17
   user_samara.occupation = "Consultante RH"
   user_samara.favorite_shop = "Fromagerie Bellevaire"
-  user_samara.personal_description = "Envie d’un colombo maison ? Samara vous propose ses talents de cuisinière et son expérience …"
+  user_samara.personal_description = "Envie d’un colombo maison ? Samara vous propose ses talents de cuisinière et son expérience avec les enfants pour le babysitting"
   user_samara.picture = File.open(Rails.root.join("app/assets/images/samara.jpg"))
   user_samara.save
 
@@ -163,7 +163,7 @@ user_thibaut = User.new
   user_thibaut.neighbour_since = 17
   user_thibaut.occupation = "Bricoleur - Vélo"
   user_thibaut.favorite_shop = "Fromagerie Bellevaire"
-  user_thibaut.personal_description = "Dans le quartier depuis plus de 5 ans et Papa de 2 enfants, Thibaut est à votre disposition …"
+  user_thibaut.personal_description = "Consultant père au foyer bricoleur, Thibaut aime trouver et appliquer des solutions pérennes à des petits problèmes récurrents. "
   user_thibaut.picture = File.open(Rails.root.join("app/assets/images/thibaut.jpg"))
   user_thibaut.save
 
