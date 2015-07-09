@@ -6,14 +6,13 @@
   Services locaux durables
 <% end %>
 
-<div class='main' id="no-result">
+<div class='main'>
   <div class= "bg-visitor margined-navbar">
-   <div class= "filter-blue"></div>
    <div class="container">
      <div class="row">
        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
          <div class="card bg-color-white">
-            <h1 class="text-center">Aie.<br> Aucune Loge n'est encore ouverte à proximité de chez vous.</h1>
+            <h3>Aie.<br> Aucune Loge n'est encore ouverte à proximité de chez vous.</h3>
             <p class="text-justify">Laissez-nous votre adresse e-mail pour être informé(e) en avant-première de l’ouverture d’une Loge près de chez vous.<br>A bientôt!<p>
             <%= simple_form_for(@contact, url: contact_path) do |f| %>
               <%= f.error_notification %>

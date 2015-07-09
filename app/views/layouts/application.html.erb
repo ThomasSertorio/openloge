@@ -11,21 +11,23 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'NewOpenLoge.png' %>
 </head>
-<body>
+<body class="Site">
   <%= render "shared/flashes" %>
   <%= render "shared/navbar" %>
-  <%= yield %>
-  <%= javascript_include_tag :application %>
-  <%= yield(:after_js) %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var height = $(window).height()
-      $('.filter-blue').css('min-height', height);
-      $(window).on('resize', function() {
+  <main class="Site-content">
+    <%= yield %>
+    <%= javascript_include_tag :application %>
+    <%= yield(:after_js) %>
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        var height = $(window).height()
         $('.filter-blue').css('min-height', height);
+        $(window).on('resize', function() {
+          $('.filter-blue').css('min-height', height);
+        })
       })
-    })
-  <% end %>
+    <% end %>
+  </main>
   <%= render "shared/footer" %>
 </body>
 </html>
