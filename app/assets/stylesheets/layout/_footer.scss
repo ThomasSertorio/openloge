@@ -1,1 +1,20 @@
 // Your footer style
+#footer {
+  background: #3F405E;
+  color: white;
+  min-height: 50px;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align:center;
+  letter-spacing: 10px;
+  padding-top: 0.5em;
+  padding-bottom: 0.2em;
+  p {
+    font-family: Open Sans;
+    font-size: 10px;
+    letter-spacing: 0em;
+    font-weight: lighter;
+  }
+}
