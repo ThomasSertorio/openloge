@@ -13,7 +13,6 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="card">
           <p><%= image_tag current_user.avatar, class: "img-profile" %></p>
-          <h1>Mes Services</h1>
         </div>
       </div>
     </div>
@@ -25,7 +24,7 @@
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a class="text-major-action-color" href="#bookings-i-asked" aria-controls="bookings-i-asked" role="tab" data-toggle="tab">Mes demandes</a>
           </li>
-          <li role="presentation"><a class="text-major-action-color" href="#bookings-i-received" aria-controls="bookings-i-received" role="tab" data-toggle="tab">On me fait appel</a></li>
+          <li role="presentation"><a class="text-major-action-color" href="#bookings-i-received" aria-controls="bookings-i-received" role="tab" data-toggle="tab">On fait appel à moi</a></li>
         </ul>
       </div>
     </div>
@@ -70,7 +69,9 @@
                               <li><i class="fa fa-money"></i> A fixer</li>
                             </ul>
                           </td>
-                          <td><%= booking.status %></td>
+                          <td>
+                            <span class="<%= booking.status_style %>"><%= booking.status %></span>
+                          </td>
                           <td><%= link_to "Voir", loge_booking_path(current_loge, booking) %></td>
                         </tr>
                       <% end %>
@@ -114,7 +115,9 @@
                           <li><i class="fa fa-money"></i> A fixer</li>
                         </ul>
                       </td>
-                      <td><%= booking.status %></td>
+                      <td>
+                        <span class="<%= booking.status_style %>"><%= booking.status %></span>
+                      </td>
                       <td><%= link_to "Voir", loge_booking_path(current_loge, booking) %></td>
                     </tr>
                   <% end %>

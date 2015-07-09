@@ -84,7 +84,7 @@ $navbar-profile-border-width: 2px;
     padding-bottom: $navbar-vertical-padding;
     color: white;
     position: absolute;
-    bottom: 0;
+    // bottom: 0;
   }
 
   .navbar-brand:hover {
@@ -107,7 +107,7 @@ $navbar-profile-border-width: 2px;
   }
 
   .navbar-brand img, .navbar-brand svg {
-    height: $navbar-height;
+    height: $navbar-height * 2;
     padding: 0px;
   }
 
@@ -152,9 +152,9 @@ $navbar-profile-border-width: 2px;
 
 @media screen and (max-width: 768px) {
   .navbar-wagon {
-    background-color: rgba(200, 200, 200, 0.8);
+    background-color: transparent;
     .navbar-brand img, .navbar-brand svg {
-      height: 50px;
+      height: 100px;
     }
     .navbar-brand, .navbar-brand:hover
      {
@@ -162,12 +162,14 @@ $navbar-profile-border-width: 2px;
       color: white;
       padding-top:15px;
     }
+    #bs-example-navbar-collapse-1 {
+      background-color: #eeeeee;
+    }
   }
 }
 
-#new-message-notif {
-  background-color: $major-action-color;
-}
 #new-message-notif a{
-  color:white;
+  color:$major-action-color;
+  font-weight:bold;
 }
+

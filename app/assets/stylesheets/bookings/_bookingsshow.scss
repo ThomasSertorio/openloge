@@ -105,3 +105,28 @@
   color:#555555;
   font-size:12px;
 }
+
+.status-asked{
+  color:#009AAB;
+  font-weight:bold;
+}
+.status-chating{
+  color:#ffb400;
+  font-weight:bold;
+}
+.status-waiting-validation{
+  color:$major-action-color;
+  font-weight:bold;
+}
+.status-waiting-service{
+  color: #3fb34f;
+  font-weight:bold;
+}
+.status-mission-done{
+  color: #555555;
+  font-weight:bold;
+}
+.status-default{
+  color: #555555;
+  font-weight:bold;
+}
