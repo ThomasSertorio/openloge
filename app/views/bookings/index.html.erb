@@ -41,7 +41,7 @@
                   <tbody>
                     <tr>
                       <th>Expert</th>
-                      <th>Détails</th>
+                      <th class="td-xs-hidden">Détails</th>
                       <th>Status</th>
                       <th>Actions</th>
                     </tr>
@@ -49,7 +49,7 @@
                       <%= link_to loge_booking_path(current_loge, booking) do %>
                         <tr>
                           <td><%= image_tag booking.service.user.avatar, class: "img-profile-small" %></td>
-                          <td>
+                          <td class="td-xs-hidden">
                             <%= booking.service.title %><br>
                             <ul class="list-unstyled">
                               <li>
@@ -98,14 +98,14 @@
                 <tbody>
                   <tr>
                     <th>Voisins</th>
-                    <th>Détails</th>
+                    <th class="td-xs-hidden">Détails</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
                   <% @bookings_i_received.each do |booking| %>
                     <tr>
                       <td><%= image_tag booking.user.avatar, class: "img-profile-small" %></td>
-                      <td>
+                      <td class="td-xs-hidden">
                         <strong><%= booking.service.title %></strong><br>
                         <ul class="list-unstyled">
                           <li>

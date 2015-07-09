@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
       @booking.user = current_user
       @booking.status = "Demande d'information"
       @booking.save
-    redirect_to loge_booking_path(@loge, @booking) + "#chat"
+    redirect_to loge_booking_path(@loge, @booking)
   end
 
   def show
@@ -29,9 +29,6 @@ class BookingsController < ApplicationController
     @expert   = @booking.service.user
     @messages = @booking.messages
 
-    @messages.each do |message|
-      message.update_attribute(:new_message, false)
-    end
 
     @new_message = Message.new
     @expert_message = Message.new(user: current_user)
@@ -51,6 +48,13 @@ class BookingsController < ApplicationController
       @booking.price = @booking.service.price * @booking.duration if @booking.duration
     end
     @booking.save
+    @booking.messages.each do |message|
+      if message == @booking.messages.last
+        message.update_attribute(:new_message, true)
+      else
+        message.update_attribute(:new_message, false)
+      end
+    end
 
     redirect_to loge_booking_path(@loge, @booking)
   end
@@ -58,19 +62,28 @@ class BookingsController < ApplicationController
   def accept
     @booking.status = "En attente de réalisation"
     @booking.save
+    @booking.messages.each do |message|
+      message.update_attribute(:new_message, false)
+    end
     redirect_to loge_booking_path(@loge, @booking)
   end
 
   def refuse
     @booking.status = "En discussion"
     @booking.save
+    @booking.messages.each do |message|
+      message.update_attribute(:new_message, false)
+    end
     redirect_to loge_booking_path(@loge, @booking)
   end
 
   def mission_done
     @booking.status = "Mission Réalisée"
     @booking.save
-    redirect_to loge_booking_path(@loge, @booking)
+    @booking.messages.each do |message|
+      message.update_attribute(:new_message, false)
+    end
+    redirect_to loge_path(@loge)
   end
 
 

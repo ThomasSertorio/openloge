@@ -7,7 +7,6 @@ $(document).ready(function(){
     "startView": "year",
     "endDate": "today",
   });
-});
 
 $(function(){
   $('input.datetimepicker').datetimepicker({
@@ -15,4 +14,5 @@ $(function(){
   });
 });
 
+});
 

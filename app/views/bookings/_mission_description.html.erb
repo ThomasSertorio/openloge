@@ -101,6 +101,11 @@
   </div>
 </div>
 
-<script type="text/javascript">
+<% content_for :after_js do %>
+  <%= javascript_tag do %>
+  // Javascript to calculte price
+    $('#booking_duration').on("load change keyup", new_price)
+  // Date time picker
     $('.datetimepicker').datetimepicker();
-</script>
+  <% end %>
+<% end %>
