@@ -34,15 +34,23 @@ class Booking < ActiveRecord::Base
   validates :user, presence: true
   validates :service, presence: true
 
-  def compute_status
-    if starts_at && duration #&&!self.price.nil?
-      self.status = "En attente de validation"
-      save
-    else
-      self.status = "En discussion"
-      save
-    end
+def status_style
+  case self.status
+  when "Demande d'information"
+    css = "status-asked"
+  when "En discussion"
+    css = "status-chating"
+  when "En attente de validation"
+    css = "status-waiting-validation"
+  when "En attente de réalisation"
+    css = "status-waiting-service"
+  when "Mission Réalisée"
+    css = "status-mission-done"
+  else
+    css = "status-default"
   end
+  return css
+end
 
 
 end

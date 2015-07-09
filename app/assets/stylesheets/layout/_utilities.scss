@@ -38,6 +38,7 @@
 }
 .bg-color-white {
   background: $bg-color-white;
+  color:#555555
 }
 .bg-major-action-color {
   background: $major-action-color;
@@ -125,11 +126,12 @@
 #expert-description {
   font-weight: normal;
   font-size: 14px;
-  text-align: justify
+  text-align: justify;
+  color: #555555;
 }
 
 .img-profile {
-  height:120px;
+  height:140px;
   border:1px solid $major-action-color;
   border-radius:50%
 }

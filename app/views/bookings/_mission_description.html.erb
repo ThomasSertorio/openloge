@@ -23,7 +23,9 @@
   </div>
   <div class="small-card-white">
     <ul class="text-center list-inline">
-      <li>Status: <%= booking.status %></li>
+      <li>
+        <span class="<%= booking.status_style %>"><%= booking.status %></span>
+      </li>
       <% if current_user == booking.service.user %>
         <li>
           <% if booking.status == "Demande d'information" %>

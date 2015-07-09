@@ -2,13 +2,10 @@ class ContactsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def create
-    p @contact = Contact.new(contact_params)
-    if @contact.save
-      redirect_to root_path
-    else
-      render 'loges/index'
-    end
-
+    @contact = Contact.new(contact_params)
+    @contact.save
+    authorize @contact
+    redirect_to root_path
   end
 
   private

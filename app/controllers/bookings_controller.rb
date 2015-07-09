@@ -42,13 +42,14 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update(booking_params)
-      @booking.compute_status
-      redirect_to loge_booking_path(@loge, @booking)
+    @booking.update(booking_params)
+    if @booking.starts_at && @booking.duration #&&price
+      @booking.status = "En attente de validation"
     else
-      # Problem no more service id!
-      redirect_to loge_booking_path(@loge, @booking)
+      @booking.status = "En discussion"
     end
+    @booking.save
+    redirect_to loge_booking_path(@loge, @booking)
   end
 
   def accept

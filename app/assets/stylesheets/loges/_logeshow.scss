@@ -17,7 +17,11 @@
 }
 
 #logo-loge{
-  height:80px;
+  height:140px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid $major-action-color;
+  box-shadow: 2px 2px 3px $major-action-color;
 }
 
 .loge-stat p{
@@ -39,7 +43,7 @@
   display: inline-block;
   position: relative;
   top: -115px;
-  right: -75px;
+  right: -95px;
   color: $major-action-color;
   font-size:14px;
 }
@@ -48,11 +52,12 @@
   display: inline-block;
   position: relative;
   top: -115px;
-  right: 75px;
+  right: 95px;
   color: $major-action-color;
   font-size:14px;
 }
 
 #expert-name {
   margin-top:0px;
+  color:#555555
 }
