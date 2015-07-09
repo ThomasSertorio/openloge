@@ -230,9 +230,9 @@ michele_cuisine = Service.new
   michele_cuisine.title = "Cuisine à domicile"
   michele_cuisine.description = "CIAO! Vous souhaitez avoir un chef italien à domicile pour un dîner un peu exceptionnel?
 Alors voilà je prépare pour vous des spécialités du Sud de l’Italie, ma contrée d’origine: Linguine alle vongole, Parmigiana di melanzane, Lasagne, Tiramisù… Vous faites les courses, ou je les fais pour vous. Je viens chez vous pour cuisiner, avec ou sans vous et je sers à table, comme au restaurant!"
-  michele_cuisine.pricing_nature = "Forfait"
+  michele_cuisine.pricing_nature = "Horaire"
   michele_cuisine.sku = "mich-1"
-  michele_cuisine.price = "7"
+  michele_cuisine.price = "20"
   michele_cuisine.save
 
 michele_cours = Service.new
@@ -330,15 +330,15 @@ emile_velo = Service.new
   emile_velo.price = "20"
   emile_velo.save
 
-samara_cuisine = Service.new
-  samara_cuisine.user = user_samara
-  samara_cuisine.category = "Cuisine"
-  samara_cuisine.title = "Plats exotiques"
-  samara_cuisine.description = "Spécialiste du colombo, j'aime cuisiner en grande quantité ;) n'hésitez pas à me commander quelques plats."
-  samara_cuisine.pricing_nature = "Forfait"
-  samara_cuisine.sku = "sama-1"
-  samara_cuisine.price = "7"
-  samara_cuisine.save
+samara_baby = Service.new
+  samara_baby.user = user_samara
+  samara_baby.category = "Baby-sitting"
+  samara_baby.title = "Baby-sitting"
+  samara_baby.description = "Issue d'une famille nombreuse, j'ai l'habitude des enfants:) N'hésitez pas à me faire appel pour m'occuper de vos enfants"
+  samara_baby.pricing_nature = "Horaire"
+  samara_baby.sku = "sama-1"
+  samara_baby.price = "7"
+  samara_baby.save
 
 thibaut_roller = Service.new
   thibaut_roller.user = user_thibaut

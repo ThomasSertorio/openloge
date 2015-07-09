@@ -66,7 +66,17 @@
                                   <i class="fa fa-clock-o"></i> A fixer
                                 <% end %>
                               </li>
-                              <li><i class="fa fa-money"></i> A fixer</li>
+                              <li>
+                                <% if booking.price == 0 %>
+                                  <% if booking.service.pricing_nature == "Horaire" %>
+                                    <i class="fa fa-money"></i> A fixer (<%= humanized_money(booking.service.price) %>€ / heure)
+                                  <% else %>
+                                    <i class="fa fa-money"></i> A fixer (A partir de <%= humanized_money(booking.service.price) %>€ )
+                                  <% end %>
+                                <% else %>
+                                  <i class="fa fa-money"></i> <%= humanized_money(booking.price) %>€
+                                <% end %>
+                              </li>
                             </ul>
                           </td>
                           <td>
@@ -112,7 +122,17 @@
                               <i class="fa fa-clock-o"></i> A fixer
                             <% end %>
                           </li>
-                          <li><i class="fa fa-money"></i> A fixer</li>
+                          <li>
+                            <% if booking.price == 0 %>
+                              <% if booking.service.pricing_nature == "Horaire" %>
+                                <i class="fa fa-money"></i> A fixer (<%= humanized_money(booking.service.price) %>€ / heure)
+                              <% else %>
+                                <i class="fa fa-money"></i> A fixer (A partir de <%= humanized_money(booking.service.price) %>€ )
+                              <% end %>
+                            <% else %>
+                              <i class="fa fa-money"></i> <%= humanized_money(booking.price) %>€
+                            <% end %>
+                          </li>
                         </ul>
                       </td>
                       <td>

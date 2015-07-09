@@ -18,7 +18,13 @@
           <%= booking.duration %> h  |
         <% end%>
       </li>
-      <li><i class="fa fa-money"></i> A fixer</li>
+      <li>
+        <% if booking.price == 0 %>
+          <i class="fa fa-money"></i> A fixer (<%= humanized_money(booking.service.price) %> € / heure)
+        <% else %>
+          <i class="fa fa-money"></i> <%= humanized_money(booking.price) %> € <em>( = <%= booking.duration %> * <%= humanized_money(booking.service.price) %>€ / heure)</em>
+        <% end %>
+      </li>
     </ul>
   </div>
   <div class="small-card-white">
@@ -84,7 +90,8 @@
                   <%= f.input :duration, label: "Durée prévue en heure", placeholder: "Durée prévue" %>
                 </div>
               </div>
-            <p>Prix<p>
+            <div id="data-price" data-price="<%= booking.service.price %>"></div>
+            <p id="price-info"><i class="fa fa-money"></i> Prix: <span id="price"><%= booking.price %></span> €</p>
 
             <%= f.button :submit, "Proposer", class: "buttonChat" %>
           <% end %>
@@ -93,3 +100,9 @@
     </div>
   </div>
 </div>
+<% content_for :after_js do %>
+  <%= javascript_tag do %>
+  // Javascript to calculte price
+    $('#booking_duration').on("load change keyup", new_price)
+  <% end %>
+<% end %>
