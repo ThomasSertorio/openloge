@@ -51,7 +51,7 @@ $navbar-profile-border-width: 2px;
   text-transform: $navbar-text-transform;
   font-weight: $navbar-font-weight;
   letter-spacing: $navbar-letter-spacing;
-  padding-left: $navbar-horizontal-padding;
+  padding-left: 10px;
   padding-right: $navbar-horizontal-padding;
   min-height: 0;
   transition: background 0.4s ease;
@@ -84,7 +84,6 @@ $navbar-profile-border-width: 2px;
     padding-bottom: $navbar-vertical-padding;
     color: white;
     position: absolute;
-    // bottom: 0;
   }
 
   .navbar-brand:hover {
@@ -107,8 +106,8 @@ $navbar-profile-border-width: 2px;
   }
 
   .navbar-brand img, .navbar-brand svg {
-    height: $navbar-height * 2;
-    padding: 0px;
+    height: $navbar-height * 1.5;
+    padding-left: 5px;
   }
 
   .img-avatar{
@@ -153,14 +152,18 @@ $navbar-profile-border-width: 2px;
 @media screen and (max-width: 768px) {
   .navbar-wagon {
     background-color: transparent;
+    padding-left: 5px;
+    padding-right:5px;
     .navbar-brand img, .navbar-brand svg {
-      height: 100px;
+      height: 52px;
+      padding: 0px;
     }
     .navbar-brand, .navbar-brand:hover
      {
       display: block;
       color: white;
-      padding-top:15px;
+      padding-top:0px;
+      margin-left:0px;
     }
     #bs-example-navbar-collapse-1 {
       background-color: #eeeeee;
