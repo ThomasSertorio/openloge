@@ -23,6 +23,8 @@ class Message < ActiveRecord::Base
 
   before_create :set_posted_at
 
+  before_save :set_new_message
+
   validates :user, presence: true
   validates :booking, presence: true
   validates :content, presence: true
@@ -31,5 +33,11 @@ class Message < ActiveRecord::Base
 
   def set_posted_at
     posted_at = Time.now
+  end
+
+  def set_new_message
+    unless self.persisted?
+      self.new_message = true
+    end
   end
 end

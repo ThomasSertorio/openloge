@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
       @booking.user = current_user
       @booking.status = "Demande d'information"
       @booking.save
-    redirect_to loge_booking_path(@loge, @booking)
+    redirect_to loge_booking_path(@loge, @booking) + "#chat"
   end
 
   def show
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     @messages = @booking.messages
 
     @messages.each do |message|
-      message.new_message = false
+      message.update_attribute(:new_message, false)
     end
 
     @new_message = Message.new
@@ -51,6 +51,7 @@ class BookingsController < ApplicationController
       @booking.price = @booking.service.price * @booking.duration if @booking.duration
     end
     @booking.save
+
     redirect_to loge_booking_path(@loge, @booking)
   end
 

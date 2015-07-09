@@ -23,11 +23,29 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? && !current_loge.nil?  %>
-          <% if current_user.new_message? %>
+          <% if current_user.has_new_message? > 0 %>
             <li id="new-message-notif">
-              <%= link_to loge_bookings_path(current_loge) do %>
-                <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
+              <%if current_user.new_message_from_client? > 0 %>
+                <%= link_to loge_bookings_path(current_loge)+ "#bookings-i-received" do %>
+                  <i class="fa fa-envelope-o"></i>
+                  <%if current_user.new_message_from_client? == 1 %>
+                    1 <%= t(".messages", default: "Message") %>
+                  <%else%>
+                    <%= current_user.has_new_message? %> <%= t(".messages", default: "Messages") %>
+                  <%end%>
+                <% end %>
+              <% else %>
+                <%= link_to loge_bookings_path(current_loge)+ "#bookings-i-asked" do %>
+                  <i class="fa fa-envelope-o"></i>
+                  <%if current_user.new_message_from_client? == 1 %>
+                    1 <%= t(".messages", default: "Message") %>
+                  <%else%>
+                    <%= current_user.has_new_message? %> <%= t(".messages", default: "Messages") %>
+                  <%end%>
+                <% end %>
               <% end %>
+
+
             </li>
           <% end %>
           <li class="dropdown">
@@ -73,7 +91,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to t(".sign_in", default: "Me connecter"), new_user_session_path %>
+            <%= link_to t(".sign_in", default: "Je suis déjà membre d'une Loge"), new_user_session_path %>
           </li>
         <% end %>
       </ul>
