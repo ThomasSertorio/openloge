@@ -7,7 +7,6 @@
 <% end %>
 
 <div class="bg-visitor margined-navbar">
-  <div class="filter-blue"></div>
   <div class="container">
     <% if @user.is_expert? %>
       <%= render 'show_expert_profile', expert: @user %>

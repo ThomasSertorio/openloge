@@ -1,10 +1,12 @@
 <div id="footer">
-  <%= link_to ('<i class="fa fa-twitter-square"></i>').html_safe, "https://twitter.com/OpenLoge", target:"_blank"  %>
-  <%= link_to ('<i class="fa fa-facebook-square"></i>').html_safe, "https://www.facebook.com/OpenLoge", target:"_blank"  %>
+  <div id="social-links">
+    <%= link_to ('<i class="fa fa-twitter-square"></i>').html_safe, "https://twitter.com/OpenLoge", target:"_blank"  %>
+    <%= link_to ('<i class="fa fa-facebook-square"></i>').html_safe, "https://www.facebook.com/OpenLoge", target:"_blank"  %>
     <%= link_to ('<i class="fa fa-google-plus-square"></i>').html_safe, "https://plus.google.com/+OpenlogeFrInfo/about", target:"_blank"  %>
     <%= link_to ('<i class="fa fa-linkedin-square"></i>').html_safe, "https://www.linkedin.com/company/9347681", target:"_blank" %>
-  <p style="font-weight:bold">
-    <%= link_to "Blog Openloge", "http://openloge.fr/blog/", target:"_blank"  %>
-  </p>
-  <p> © Openloge 2015 </p>
+  </div>
+  <div id="bottom-of-footer">
+    <h6><%= link_to "Blog Openloge", "http://openloge.fr/blog/", target:"_blank"  %></h6>
+    <p> © Openloge 2015 </p>
+  </div>
 </div>
