@@ -13,6 +13,8 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  loge_id        :integer
+#  sku            :string
+#  price_cents    :integer          default(0), not null
 #
 # Indexes
 #
@@ -33,6 +35,9 @@ class Booking < ActiveRecord::Base
   validates :loge, presence: true
   validates :user, presence: true
   validates :service, presence: true
+
+  monetize :price_cents
+
 
 def status_style
   case self.status

@@ -30,6 +30,7 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
 gem 'omniauth-facebook'
 
 gem "geocoder"
+gem "money-rails"
 
 group :development, :test do
   gem "spring"

@@ -10,6 +10,8 @@
 #  pricing_nature :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  sku            :string
+#  price_cents    :integer          default(0), not null
 #
 # Indexes
 #
@@ -22,5 +24,6 @@ class Service < ActiveRecord::Base
 
   validates :title, presence: true
 
+  monetize :price_cents
 
 end

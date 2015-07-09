@@ -231,6 +231,8 @@ michele_cuisine = Service.new
   michele_cuisine.description = "CIAO! Vous souhaitez avoir un chef italien à domicile pour un dîner un peu exceptionnel?
 Alors voilà je prépare pour vous des spécialités du Sud de l’Italie, ma contrée d’origine: Linguine alle vongole, Parmigiana di melanzane, Lasagne, Tiramisù… Vous faites les courses, ou je les fais pour vous. Je viens chez vous pour cuisiner, avec ou sans vous et je sers à table, comme au restaurant!"
   michele_cuisine.pricing_nature = "Forfait"
+  michele_cuisine.sku = "mich-1"
+  michele_cuisine.price = "7"
   michele_cuisine.save
 
 michele_cours = Service.new
@@ -239,6 +241,8 @@ michele_cours = Service.new
   michele_cours.title = "Cours d'Italien"
   michele_cours.description = "Je suis diplômé en Littérature italienne classique et je peux donc vous proposer des cours en italien, que ce soit des cours de grammaire ou de la conversation, et du soutien scolaire en italien pour vos enfants."
   michele_cours.pricing_nature = "Horaire"
+  michele_cours.sku = "mich-2"
+  michele_cours.price = "15"
   michele_cours.save
 
 bela_depannage = Service.new
@@ -247,6 +251,8 @@ bela_depannage = Service.new
   bela_depannage.title = "Intervention/Dépannage « en urgence »"
   bela_depannage.description = "Votre ordinateur ne démarre plus, est infecté ou fonctionne très lentement, votre box internet ne répond plus, vous voulez changer de système d’exploitation : j’interviens ponctuellement pour vous dépanner dans les meilleurs délais."
   bela_depannage.pricing_nature = "Horaire"
+  bela_depannage.sku = "bela-1"
+  bela_depannage.price = "28"
   bela_depannage.save
 
 bela_accompagnement = Service.new
@@ -256,6 +262,8 @@ bela_accompagnement = Service.new
   bela_accompagnement.description = "Je vous aide à prendre en main votre ordinateur, à assurer vous-même sa maintenance régulière, à mettre en place un carnet d’entretien informatique.
 Je donne des conseils pratiques pour une informatique éco-responsable : choix du matériel durable, utilisation réfléchie et gestion de la fin de vie de vos appareils."
   bela_accompagnement.pricing_nature = "Horaire"
+  bela_accompagnement.sku = "bela-2"
+  bela_accompagnement.price = "28"
   bela_accompagnement.save
 
 bela_formation = Service.new
@@ -267,64 +275,80 @@ Vous voulez optimiser votre navigation internet et votre messagerie ?
 Vous voulez exercer votre créativité et vous initier aux outils multimédias (montage vidéo, édition audio) ?
 Je vous accompagne dans vos projets d’apprentissage."
   bela_formation.pricing_nature = "Horaire"
+  bela_formation.sku = "bela-3"
+  bela_formation.price = "28"
   bela_formation.save
 
-alexandra_formation = Service.new
-  alexandra_formation.user = user_alexandra
-  alexandra_formation.category = "Baby-sitting"
-  alexandra_formation.title = "Baby-sitting"
-  alexandra_formation.description = "Je m'occupe de vos bambins!"
-  alexandra_formation.pricing_nature = "Horaire"
-  alexandra_formation.save
+alexandra_baby = Service.new
+  alexandra_baby.user = user_alexandra
+  alexandra_baby.category = "Baby-sitting"
+  alexandra_baby.title = "Baby-sitting"
+  alexandra_baby.description = "Je m'occupe de vos bambins!"
+  alexandra_baby.pricing_nature = "Horaire"
+  alexandra_baby.sku = "alex-1"
+  alexandra_baby.price = "10"
+  alexandra_baby.save
 
-alexandra_formation = Service.new
-  alexandra_formation.user = user_alexandra
-  alexandra_formation.category = "Cours Particuliers"
-  alexandra_formation.title = "Soutien scolaire"
-  alexandra_formation.description = "Cours Primaire / Collège / Lycée"
-  alexandra_formation.pricing_nature = "Horaire"
-  alexandra_formation.save
+alexandra_cours = Service.new
+  alexandra_cours.user = user_alexandra
+  alexandra_cours.category = "Cours Particuliers"
+  alexandra_cours.title = "Soutien scolaire"
+  alexandra_cours.description = "Cours Primaire / Collège / Lycée"
+  alexandra_cours.pricing_nature = "Horaire"
+  alexandra_cours.sku = "alex-2"
+  alexandra_cours.price = "18"
+  alexandra_cours.save
 
-isa_formation = Service.new
-  isa_formation.user = user_isa
-  isa_formation.category = "Cours Particuliers"
-  isa_formation.title = "Cours de Yoga"
-  isa_formation.description = "Si vous souhaitez mettre en place à votre domicile, un véritable rendez-vous avec vous-même, je me tiens à votre disposition pour vous proposer un cours de yoga adapté à votre niveau et personnalisé.
+isa_yoga = Service.new
+  isa_yoga.user = user_isa
+  isa_yoga.category = "Sport"
+  isa_yoga.title = "Cours de Yoga"
+  isa_yoga.description = "Si vous souhaitez mettre en place à votre domicile, un véritable rendez-vous avec vous-même, je me tiens à votre disposition pour vous proposer un cours de yoga adapté à votre niveau et personnalisé.
 Si vous souhaitez mettre en place un cours à l’heure du déjeuner dans votre entreprise via votre CE, je suis disposé à répondre à votre demande et à vos besoins."
-  isa_formation.pricing_nature = "Horaire"
-  isa_formation.save
+  isa_yoga.pricing_nature = "Horaire"
+  isa_yoga.sku = "isa-1"
+  isa_yoga.price = "25"
+  isa_yoga.save
 
-emile_formation = Service.new
-  emile_formation.user = user_emile
-  emile_formation.category = "Bricolage"
-  emile_formation.title = "Bricolage à domicile"
-  emile_formation.description = "Besoin d'installer votre étagère? De refaire la peinture, j'aime le travail bien fait"
-  emile_formation.pricing_nature = "Horaire"
-  emile_formation.save
+emile_bricol = Service.new
+  emile_bricol.user = user_emile
+  emile_bricol.category = "Bricolage"
+  emile_bricol.title = "Bricolage à domicile"
+  emile_bricol.description = "Besoin d'installer votre étagère? De refaire la peinture, j'aime le travail bien fait"
+  emile_bricol.pricing_nature = "Horaire"
+  emile_bricol.sku = "emil-1"
+  emile_bricol.price = "30"
+  emile_bricol.save
 
-emile_formation = Service.new
-  emile_formation.user = user_emile
-  emile_formation.category = "Réparation Vélo"
-  emile_formation.title = "Réparation/Révison de vélo"
-  emile_formation.description = "Je m'occupe de vos vieux vélo!"
-  emile_formation.pricing_nature = "Horaire"
-  emile_formation.save
+emile_velo = Service.new
+  emile_velo.user = user_emile
+  emile_velo.category = "Réparation Vélo"
+  emile_velo.title = "Réparation/Révison de vélo"
+  emile_velo.description = "Je m'occupe de vos vieux vélo!"
+  emile_velo.pricing_nature = "Horaire"
+  emile_velo.sku = "emil-2"
+  emile_velo.price = "20"
+  emile_velo.save
 
-samara_formation = Service.new
-  samara_formation.user = user_samara
-  samara_formation.category = "Cuisine"
-  samara_formation.title = "Plats exotiques"
-  samara_formation.description = "Spécialiste du colombo, j'aime cuisiner en grande quantité ;) n'hésitez pas à me commander quelques plats."
-  samara_formation.pricing_nature = "Horaire"
-  samara_formation.save
+samara_cuisine = Service.new
+  samara_cuisine.user = user_samara
+  samara_cuisine.category = "Cuisine"
+  samara_cuisine.title = "Plats exotiques"
+  samara_cuisine.description = "Spécialiste du colombo, j'aime cuisiner en grande quantité ;) n'hésitez pas à me commander quelques plats."
+  samara_cuisine.pricing_nature = "Forfait"
+  samara_cuisine.sku = "sama-1"
+  samara_cuisine.price = "7"
+  samara_cuisine.save
 
-thibaut_formation = Service.new
-  thibaut_formation.user = user_thibaut
-  thibaut_formation.category = "Cours particuliers"
-  thibaut_formation.title = "Cours de Roller"
-  thibaut_formation.description = "Inline/Quad/Agressi j'apprends à vos enfants ou vous meme les bases de la glisse"
-  thibaut_formation.pricing_nature = "Horaire"
-  thibaut_formation.save
+thibaut_roller = Service.new
+  thibaut_roller.user = user_thibaut
+  thibaut_roller.category = "Sport"
+  thibaut_roller.title = "Cours de Roller"
+  thibaut_roller.description = "Inline/Quad/Agressi j'apprends à vos enfants ou vous meme les bases de la glisse"
+  thibaut_roller.pricing_nature = "Horaire"
+  thibaut_roller.sku = "thib-1"
+  thibaut_roller.price = "15"
+  thibaut_roller.save
 
 
 

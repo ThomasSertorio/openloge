@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706154005) do
+ActiveRecord::Schema.define(version: 20150709080814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 20150706154005) do
     t.datetime "starts_at"
     t.integer  "duration"
     t.text     "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "loge_id"
+    t.string   "sku"
+    t.integer  "price_cents",    default: 0, null: false
   end
 
   add_index "bookings", ["loge_id"], name: "index_bookings_on_loge_id", using: :btree
@@ -91,8 +93,10 @@ ActiveRecord::Schema.define(version: 20150706154005) do
     t.string   "title"
     t.text     "description"
     t.string   "pricing_nature"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "sku"
+    t.integer  "price_cents",    default: 0, null: false
   end
 
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
@@ -119,14 +123,14 @@ ActiveRecord::Schema.define(version: 20150706154005) do
     t.text     "personal_description"
     t.integer  "neighbour_since"
     t.string   "favorite_shop"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
     t.string   "name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
