@@ -7,12 +7,12 @@ $(document).ready(function(){
     "startView": "year",
     "endDate": "today",
   });
+});
 
-  $('[data-behaviour~=modal-datepicker]').datepicker({
-    "format": "dd/mm/yyyy",
-    "weekStart": 1,
-    "language": "fr",
-    "startView": "day",
-    "startDate": "today",
+$(function(){
+  $('input.datetimepicker').datetimepicker({
+    minDate: 0,
   });
 });
+
+

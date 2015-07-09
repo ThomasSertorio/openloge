@@ -82,7 +82,7 @@
             <% end %>
               <div class="row">
                 <div class="col-xs-5">
-                  <%= f.input :starts_at, label:"Date de la mission", as: :string, :input_html => { data: {behaviour: "modal-datepicker"}} %>
+                  <%= f.input :starts_at, as: :datetime_picker, label:"Date de la mission" %>
                 </div>
                 <div class="col-xs-1">
                 </div>
@@ -100,9 +100,7 @@
     </div>
   </div>
 </div>
-<% content_for :after_js do %>
-  <%= javascript_tag do %>
-  // Javascript to calculte price
-    $('#booking_duration').on("load change keyup", new_price)
-  <% end %>
-<% end %>
+
+<script type="text/javascript">
+    $('.datetimepicker').datetimepicker();
+</script>

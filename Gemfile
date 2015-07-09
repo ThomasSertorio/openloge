@@ -27,6 +27,10 @@ gem "devise-i18n-views"
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
   :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+
 gem 'omniauth-facebook'
 
 gem "geocoder"
