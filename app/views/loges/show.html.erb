@@ -9,79 +9,79 @@
 <div id="loge-show" class='margined-navbar'>
   <div class="bg-visitor">
   <div class="filter-blue"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="card">
-          <%=  image_tag "loge_10_pink.png", id: "logo-loge" %>
-          <h1><%= @loge.name %></h1>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">
-        <div class="loge-stat right-border text-shadowed">
-          <p><i class="fa fa-birthday-cake"></i> <%= @loge.created_on.strftime("%Y") %></p>
-          <p class="font-very-small">depuis</p>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="loge-stat right-border text-shadowed">
-          <p><%= @loge.services_done.size %> <i class="fa fa-smile-o"></i></p>
-          <p class="font-very-small">services rendus</p>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="loge-stat right-border text-shadowed">
-          <p><%= @loge.experts.size %> <i class="fa fa-user-md"></i></p>
-          <p class="font-very-small">experts</p>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="loge-stat text-shadowed">
-          <p><%= @loge.members.size %> <i class="fa fa-users"></i></p>
-          <p class="font-very-small">voisins</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div id="livefeed" class="text-left bg-major-action-color">
-          <p>--- Live Feed ---</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>L'équipe de la <%= @loge.name %> </h2>
-        <p class="text-major-action-color"><strong>J'ai besoin d'un expert de la Loge pour:<strong></p>
-        <% @loge.service_categories.each do |category| %>
-          <a class="btn buttonCategory" href="#" role="button"><%= category %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <% @loge.experts.each do |expert| %>
-        <%= link_to loge_user_path(@loge, expert), class: "link-unstyled" do%>
-          <div class="col-xs-12 col-sm-6 col-lg-3">
-            <div class="card2 bg-color-white link-unstyled">
-              <div>
-                <p><%= image_tag image_path(expert.avatar), class:"img-profile" %></p>
-                <div id="reco"><i class="fa fa-star"></i> <%= expert.received_reco %></div>
-                <div id="services_done"><%= expert.services_done.size %> <i class="fa fa-smile-o"></i></div>
-              </div>
-              <h3 id="expert-name"><%= expert.first_name.capitalize %></h3>
-              <p class="text-left"><% expert.categories.each do |category| %>
-                  <a class="btn buttonCategory" href="#" role="button"><%= category %></a>
-                <% end %>
-              </p>
-              <p class="text-left" id="expert-description"><%= expert.personal_description[0..90] + "..." %></p>
-              <%= link_to "Me Contacter", loge_user_path(@loge, expert), class:"btn buttonContactExpert" %></a>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card">
+            <%=  image_tag "loge_10_pink.png", id: "logo-loge" %>
+            <h1><%= @loge.name %></h1>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="loge-stat right-border text-shadowed">
+            <p><i class="fa fa-birthday-cake"></i> <%= @loge.created_on.strftime("%Y") %></p>
+            <p class="font-very-small">depuis</p>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="loge-stat right-border text-shadowed">
+            <p><%= @loge.services_done.size %> <i class="fa fa-smile-o"></i></p>
+            <p class="font-very-small">services rendus</p>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="loge-stat right-border text-shadowed">
+            <p><%= @loge.experts.size %> <i class="fa fa-user-md"></i></p>
+            <p class="font-very-small">experts</p>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="loge-stat text-shadowed">
+            <p><%= @loge.members.size %> <i class="fa fa-users"></i></p>
+            <p class="font-very-small">voisins</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="livefeed" class="text-left bg-major-action-color">
+            <p>--- Live Feed ---</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>L'équipe de la <%= @loge.name %> </h2>
+          <p class="text-major-action-color"><strong>J'ai besoin d'un expert de la Loge pour:<strong></p>
+          <% @loge.service_categories.each do |category| %>
+            <a class="btn buttonCategory" href="#" role="button"><%= category %></a>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <% @loge.experts.each do |expert| %>
+          <%= link_to loge_user_path(@loge, expert), class: "link-unstyled" do%>
+            <div class="col-xs-12 col-sm-6 col-lg-3">
+              <div class="card2 bg-color-white link-unstyled">
+                <div>
+                  <p><%= image_tag image_path(expert.avatar), class:"img-profile" %></p>
+                  <div id="reco"><i class="fa fa-star"></i> <%= expert.received_reco %></div>
+                  <div id="services_done"><%= expert.services_done.size %> <i class="fa fa-smile-o"></i></div>
+                </div>
+                <h3 id="expert-name"><%= expert.first_name.capitalize %></h3>
+                <p class="text-left"><% expert.categories.each do |category| %>
+                    <a class="btn buttonCategory" href="#" role="button"><%= category %></a>
+                  <% end %>
+                </p>
+                <p class="text-left" id="expert-description"><%= expert.personal_description[0..90] + "..." %></p>
+                <%= link_to "Me Contacter", loge_user_path(@loge, expert), class:"btn buttonContactExpert" %></a>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
   </div>
 </div>

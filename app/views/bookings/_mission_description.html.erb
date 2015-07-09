@@ -74,9 +74,18 @@
               <%= message_form.input :user_id, as: :hidden %>
               <%= message_form.input :content, label:"Votre réponse", as: :text %>
             <% end %>
-            <%= f.input :starts_at, label:"Date de la mission", as: :string, :input_html => { data: {behaviour: "modal-datepicker"}} %>
-            <%= f.input :duration, label: "Durée prévue en heure", placeholder: "Durée prévue" %>
-            <p>Price<p>
+              <div class="row">
+                <div class="col-xs-5">
+                  <%= f.input :starts_at, label:"Date de la mission", as: :string, :input_html => { data: {behaviour: "modal-datepicker"}} %>
+                </div>
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-5">
+                  <%= f.input :duration, label: "Durée prévue en heure", placeholder: "Durée prévue" %>
+                </div>
+              </div>
+            <p>Prix<p>
+
             <%= f.button :submit, "Proposer", class: "buttonChat" %>
           <% end %>
         </div>

@@ -5,8 +5,8 @@
   background: $major-action-color;
   color: white;
   border-radius: 0px 5px 5px 0px;
-  padding-top: 0.73em;
-  padding-bottom: 0.73em;
+  padding-top: 0.62em;
+  padding-bottom: 0.62em;
   border-color: lightgray;
   &:hover {
     background: $minor-action-color;
@@ -112,7 +112,7 @@
 
 .buttonCategory {
   color: white;
-  font-size: 14px;
+  font-size: 11px;
   text-align: center;
   background: $minor-action-color;
   border-radius: 3px;
