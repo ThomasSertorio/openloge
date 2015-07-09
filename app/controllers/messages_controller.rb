@@ -12,8 +12,7 @@ class MessagesController < ApplicationController
     @message.save
     @booking.messages.each do |message|
       if message != @message
-        message.new_message = false
-        message.save
+        message.update_attribute(:new_message, false)
       end
     end
     redirect_to loge_booking_path(@loge, @booking)
