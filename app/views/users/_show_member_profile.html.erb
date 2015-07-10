@@ -13,7 +13,13 @@
         <div class="card">
           <div class="text-center">
             <p><%= image_tag image_path(member.avatar), class:"img-profile" %></p>
-            <h2 id="profile-title"><%= member.first_name.capitalize %></h2>
+            <h2 id="profile-title">
+              <% if member.first_name.nil? %>
+                Prénom à compléter
+                <% else %>
+                  <%= member.first_name.capitalize %>
+                <% end %>
+              </h2>
           </div>
         </div>
         <div class="card bg-color-white">
