@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     @expert   = @booking.service.user
-    @messages = @booking.messages
+    @messages = @booking.messages.sort_by &:created_at
 
 
     @new_message = Message.new

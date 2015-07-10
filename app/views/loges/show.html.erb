@@ -65,9 +65,9 @@
             <div class="col-xs-12 col-sm-6 col-lg-3">
               <div class="card2 bg-color-white link-unstyled">
                 <div>
+                  <div id="reco"><%= expert.received_reco %> <i class="fa fa-star"></i></div>
+                  <div id="services_done"><i class="fa fa-smile-o"></i> <%= expert.services_done.size %></div>
                   <p><%= image_tag image_path(expert.avatar), class:"img-profile" %></p>
-                  <div id="reco"><i class="fa fa-star"></i> <%= expert.received_reco %></div>
-                  <div id="services_done"><%= expert.services_done.size %> <i class="fa fa-smile-o"></i></div>
                 </div>
                 <h3 id="expert-name"><%= expert.first_name.capitalize %></h3>
                 <p class="text-left"><% expert.categories.each do |category| %>

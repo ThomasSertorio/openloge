@@ -123,6 +123,11 @@
   border:2px solid $major-action-color;
   border-radius:50%
 }
+@media screen and (max-width: 768px) {
+  .img-profile {
+  height:100px;
+  }
+}
 .img-profile-big {
   height:200px;
   border:2px solid $major-action-color;
