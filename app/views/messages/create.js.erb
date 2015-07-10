@@ -1,0 +1,12 @@
+var expert = "<%= @message.user == @booking.service.user %>";
+if (expert) {
+  var new_message_div = $('<div class="row">').html('<div class="expert-message"><p class="text-right"><%= @message.content %></p><p class="posted-at"><%= @message.created_at.strftime("%A %d at %kh%M" ) %></p></div>').hide();
+  $('#chat-room').append(new_message_div);
+  new_message_div.slideDown();
+
+} else{
+  var new_message_div = $('<div class="row">').html('<div class="user-message"><p class="text-left"><%= @message.content %></p><p class="posted-at"><%= @message.created_at.strftime("%A %d at %kh%M" ) %></p></div>').hide();
+  $('#chat-room').append(new_message_div);
+  new_message_div.slideDown();
+}
+$('#message_content').val('');
