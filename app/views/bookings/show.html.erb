@@ -31,7 +31,7 @@
           <p class="text-left"><strong>Note</strong>: Utilisez le chat pour discuter tout au long de la mission.</p>
           <% if current_user == @booking.user %>
             <div id="new-message">
-              <%= simple_form_for([@loge, @booking, @new_message]) do |f| %>
+              <%= simple_form_for([@loge, @booking, @new_message], remote: true) do |f| %>
                 <%= f.input :content, label: false,placeholder: 'Précisez votre demande' %>
                 <%= f.button :submit, "Envoyer", class: "buttonChat" %>
               <% end %>

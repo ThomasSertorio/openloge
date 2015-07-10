@@ -15,7 +15,12 @@ class MessagesController < ApplicationController
         message.update_attribute(:new_message, false)
       end
     end
-    redirect_to loge_booking_path(@loge, @booking)
+    p "=========================="
+    respond_to  do   | format |
+      format.html { redirect_to loge_booking_path(@loge, @booking) }
+      format.js   # <­­ will render `app/views/reviews/create.js.erb
+    end
+    # redirect_to loge_booking_path(@loge, @booking)
   end
 
    private
