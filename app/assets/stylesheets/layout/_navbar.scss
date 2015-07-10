@@ -158,8 +158,7 @@ $navbar-profile-border-width: 2px;
       height: 52px;
       padding: 0px;
     }
-    .navbar-brand, .navbar-brand:hover
-     {
+    .navbar-brand, .navbar-brand:hover{
       display: block;
       color: white;
       padding-top:0px;
@@ -167,6 +166,9 @@ $navbar-profile-border-width: 2px;
     }
     #bs-example-navbar-collapse-1 {
       background-color: #50515A;
+    }
+    .dropdown-menu .fa{
+      color: white;
     }
   }
 }
